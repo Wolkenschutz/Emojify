@@ -1,8 +1,8 @@
 # Emojify
 
-Modern animated emojis for World of Warcraft
+Modern emojis for World of Warcraft
 
-Transform your WoW chat with smooth animations, smart autocomplete, 
+Transform your WoW chat with static and animated emojis, smart autocomplete, 
 and hundreds of emojis. Just type `:` and start expressing yourself!
 
 Originally inspired by [Arukori](https://twitch.tv/arukori)'s idea to bring Twitch emotes into World of Warcraft!
@@ -11,7 +11,7 @@ Originally inspired by [Arukori](https://twitch.tv/arukori)'s idea to bring Twit
 
 ## Features
 
-- **Animated Emojis** - Frame-perfect sprite animations in chat
+- **Static & Animated Emojis** - Frame-perfect sprite animations and crisp static emojis
 - **Smart Autocomplete** - Type `:` trigger with live search
 - **Visual Picker** - Browse, search, and click to insert
 - **Chat Bubble Support** - Works in 3D world chat bubbles (outside instances only)
@@ -211,7 +211,7 @@ pack:AddAnimatedEmoji("wink", 30, 64)
 
 - **Animation System**: Horizontal sprite sheets with per-frame timing
 - **Autocomplete**: Trie-based prefix search with usage weighting
-- **Performance**: Visible animation tracking, 100 FPS update loop
+- **Performance**: Visible animation tracking
 - **Storage**: Usage statistics with exponential decay (30-day window)
 
 ## Contributing

@@ -1,6 +1,5 @@
 --------------------------------------------------------------------------------
 -- Emojify - Main
--- Initialization and update loop
 --------------------------------------------------------------------------------
 
 local addonName, ns = ...;
@@ -19,10 +18,6 @@ local AUTO_CLOSE_TIME = ns.Constants.AUTO_CLOSE_TIME;
 
 local animationTimer = 0;
 local autoCloseTimer = 0;
-
---------------------------------------------------------------------------------
--- Event Handler
---------------------------------------------------------------------------------
 
 local function OnEvent(self, event, addon)
     if (addon ~= addonName) then

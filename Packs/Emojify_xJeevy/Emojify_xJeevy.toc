@@ -1,4 +1,4 @@
-## Interface: 110200
+## Interface: 110205
 
 ## Title: |cff987BD8Twitch @xJeevy|r
 ## Notes: Twitch Emotes of xJeevy
