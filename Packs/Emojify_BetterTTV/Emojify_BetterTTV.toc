@@ -1,0 +1,22 @@
+## Interface: 110200
+
+## Title: |cffDE0014BetterTTV|r
+## Notes: BetterTTV Emotes
+## Version: 1.0
+## IconTexture: Interface\AddOns\Emojify_BetterTTV\icon
+
+## Dependencies: Emojify
+## Group: Emojify
+## Category-enUS: Chat
+## Category-deDE: Chat
+## Category-esES: Chat
+## Category-esMX: Chat
+## Category-frFR: Discussion
+## Category-itIT: Chat
+## Category-koKR: 대화
+## Category-ptBR: Bate-papo
+## Category-ruRU: Чат
+## Category-zhCN: 聊天
+## Category-zhTW: 對話
+
+pack.lua

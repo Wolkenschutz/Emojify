@@ -1,0 +1,41 @@
+## Interface: 110200
+## Title: |cff7eb849Emojify|r
+## Notes: Express yourself with emojis and bring your chat to life!
+## Notes-deDE: Drücke dich mit Emojis aus und erwecke deinen Chat zum Leben!
+## Author: Selina Ruesch
+## X-Email: selina.ruesch@gmail.com
+## Version: @project-version@
+## IconTexture: Interface\AddOns\Emojify\icon
+## Category-enUS: Chat
+## Category-deDE: Chat
+## Category-esES: Chat
+## Category-esMX: Chat
+## Category-frFR: Discussion
+## Category-itIT: Chat
+## Category-koKR: 대화
+## Category-ptBR: Bate-papo
+## Category-ruRU: Чат
+## Category-zhCN: 聊天
+## Category-zhTW: 對話
+## SavedVariables: EmojifyDB
+
+Localization\enUS.lua
+Localization\deDE.lua
+
+Core\Init.lua
+Core\EmojiRegistry.lua
+Core\Animation.lua
+Core\Trie.lua
+
+UI\EmojifyPickerButtonMixin.lua
+UI\AutocompleteFrameMixin.lua
+UI\AutocompleteFrame.lua
+UI\EmojifyPicker.lua
+ui\EmojifyPickerMixin.lua
+UI\Templates.xml
+
+Modules\ChatFilter.lua
+Modules\ChatBubbles.lua
+Modules\ChatFrameHooks.lua
+
+Emojify.lua

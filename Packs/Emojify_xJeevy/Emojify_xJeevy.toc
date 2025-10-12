@@ -1,0 +1,22 @@
+## Interface: 110200
+
+## Title: |cff987BD8Twitch @xJeevy|r
+## Notes: Twitch Emotes of xJeevy
+## Version: 1.0
+## IconTexture: Interface\AddOns\Emojify_xJeevy\icon
+
+## Dependencies: Emojify
+## Group: Emojify
+## Category-enUS: Chat
+## Category-deDE: Chat
+## Category-esES: Chat
+## Category-esMX: Chat
+## Category-frFR: Discussion
+## Category-itIT: Chat
+## Category-koKR: 대화
+## Category-ptBR: Bate-papo
+## Category-ruRU: Чат
+## Category-zhCN: 聊天
+## Category-zhTW: 對話
+
+pack.lua

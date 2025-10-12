@@ -1,0 +1,262 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\..\Blizzard_SharedXML\UI.xsd">
+    <Button name="EmojifyAutocompleteButtonTemplate" mixin="EmojifyAutocompleteButtonMixin" virtual="true">
+        <Size x="1" y="28"/>
+        <Layers>
+            <Layer level="BACKGROUND" textureSubLevel="0">
+                <Texture parentKey="Highlight" hidden="true">
+                    <Color r="0.3" g="0.3" b="0.3" a="0.3"/>
+                </Texture>
+            </Layer>
+            <Layer level="BACKGROUND" textureSubLevel="1">
+                <Texture parentKey="Texture">
+                    <Size x="24" y="24"/>
+                    <Anchors>
+                        <Anchor point="LEFT" x="4"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="BACKGROUND" textureSubLevel="1">
+                <FontString parentKey="Text" inherits="GameFontNormal" justifyH="LEFT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="LEFT" relativeKey="$parent.Texture" relativePoint="RIGHT" x="6"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnClick method="OnClick"/>
+            <OnEnter method="OnEnter"/>
+            <OnLeave method="OnLeave"/>
+        </Scripts>
+    </Button>
+    <Button name="EmojifyPickerButtonTemplate" hidden="true" mixin="EmojifyPickerButtonMixin" virtual="true">
+        <Size x="22" y="22"/>
+        <Layers>
+            <Layer level="ARTWORK">
+                <Texture parentKey="Texture" setAllPoints="true" desaturated="true"/>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnLoad method="OnLoad"/>
+            <OnClick method="OnClick"/>
+            <OnEnter method="OnEnter"/>
+            <OnLeave method="OnLeave"/>
+        </Scripts>
+    </Button>
+    <Frame name="EmojifyAutocompleteFrame" parent="UIParent" frameStrata="DIALOG" toplevel="true" enableMouse="true" mixin="EmojifyAutocompleteFrameMixin" inherits="BackdropTemplate" hidden="true">
+        <Size x="240" y="100"/>
+        <Frames>
+            <Frame parentKey="ScrollBox" inherits="WowScrollBoxList">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="8" y="-4"/>
+                    <Anchor point="BOTTOMRIGHT" x="-26" y="4"/>
+                </Anchors>
+            </Frame>
+            <EventFrame parentKey="ScrollBar" inherits="MinimalScrollBar">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeKey="$parent.ScrollBox" relativePoint="TOPRIGHT" x="7" y="-3"/>
+                    <Anchor point="BOTTOMLEFT" relativeKey="$parent.ScrollBox" relativePoint="BOTTOMRIGHT" x="7" y="2"/>
+                </Anchors>
+            </EventFrame>
+            <Frame>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="4" y="-4"/>
+                    <Anchor point="BOTTOMRIGHT" x="-4" y="4"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY" textureSubLevel="7">
+                        <FontString parentKey="HintText" inherits="GameFontNormalSmall" justifyH="CENTER" text="EMOJIFY_AUTOCOMPLETE_HINT">
+                            <Anchors>
+                                <Anchor point="BOTTOM" x="-10" y="5"/>
+                            </Anchors>
+                            <Color r="0.6" g="0.6" b="0.6"/>
+                        </FontString>
+                    </Layer>
+                    <Layer level="OVERLAY" textureSubLevel="6">
+                        <Texture>
+                            <Size y="32"/>
+                            <Anchors>
+                                <Anchor point="BOTTOMLEFT"/>
+                                <Anchor point="BOTTOMRIGHT"/>
+                            </Anchors>
+                            <Color r="0" g="0" b="0" a="1"/>
+                            <Gradient orientation="HORIZONTAL">
+                                <MaxColor r="0" g="0" b="0" a="0"/>
+                                <MinColor r="0" g="0" b="0" a="1"/>
+                            </Gradient>
+                        </Texture>
+                    </Layer>
+                </Layers>
+            </Frame>
+        </Frames>
+        <Scripts>
+            <OnLoad method="OnLoad"/>
+            <OnShow method="OnShow"/>
+            <OnHide method="OnHide"/>
+        </Scripts>
+    </Frame>
+    <Frame name="EmojifyPickerElementTemplate" virtual="true">
+        <Size x="1" y="28"/>
+    </Frame>
+    <Button name="EmojifyPickerHeaderTemplate" mixin="EmojifyPickerHeaderMixin" virtual="true">
+        <Size x="1" y="28"/>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="Background" setAllPoints="true">
+                    <Color r="0.15" g="0.15" b="0.15" a="0.9"/>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK">
+                <FontString parentKey="Arrow" inherits="GameFontNormal" justifyH="CENTER" justifyV="MIDDLE">
+                    <Size x="16" y="16"/>
+                    <Anchors>
+                        <Anchor point="LEFT" x="2" y="0"/>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="Text" inherits="GameFontNormal" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="LEFT" relativeKey="$parent.Arrow" relativePoint="RIGHT" x="0" y="0"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnClick method="OnClick"/>
+        </Scripts>
+    </Button>
+    <Button name="EmojifyPickerGridButtonTemplate" mixin="EmojifyPickerGridButtonMixin" virtual="true">
+        <Size x="48" y="48"/>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="Background">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="2" y="-2"/>
+                        <Anchor point="BOTTOMRIGHT" x="-2" y="2"/>
+                    </Anchors>
+                    <Color r="0" g="0" b="0" a="0.5"/>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK">
+                <Texture parentKey="Texture">
+                    <Size x="40" y="40"/>
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                </Texture>
+                <MaskTexture parentKey="IconMask" atlas="item_upgrade_tooltip_fullmask" hWrapMode="CLAMPTOBLACKADDITIVE" vWrapMode="CLAMPTOBLACKADDITIVE">
+                    <Size x="40" y="40"/>
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                    <MaskedTextures>
+                        <MaskedTexture childKey="Texture"/>
+                    </MaskedTextures>
+                </MaskTexture>
+            </Layer>
+            <Layer level="HIGHLIGHT">
+                <Texture parentKey="Highlight" hidden="true">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="2" y="-2"/>
+                        <Anchor point="BOTTOMRIGHT" x="-2" y="2"/>
+                    </Anchors>
+                    <Color r="0.4" g="0.4" b="0.8" a="0.3"/>
+                </Texture>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnClick method="OnClick"/>
+            <OnEnter method="OnEnter"/>
+            <OnLeave method="OnLeave"/>
+        </Scripts>
+    </Button>
+
+    <Frame name="EmojifyPickerFrame" parent="UIParent" frameStrata="DIALOG" toplevel="true" enableMouse="true" movable="true" clampedToScreen="true" registerForDrag="LeftButton" inherits="BackdropTemplate" mixin="EmojifyPickerFrameMixin" hidden="true">
+        <KeyValues>
+            <KeyValue key="backdropInfo" value="BACKDROP_DIALOG_32_32" type="global"/>
+        </KeyValues>
+        <Size x="380" y="520"/>
+        <Anchors>
+            <Anchor point="CENTER"/>
+        </Anchors>
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString inherits="GameFontNormalLarge" text="Emojify">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="20" y="-21"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Frames>
+            <Button parentKey="CloseButton" inherits="UIPanelCloseButton">
+                <Anchors>
+                    <Anchor point="TOPRIGHT" x="-7" y="-7"/>
+                </Anchors>
+                <Scripts>
+                    <OnClick>
+                        self:GetParent():Hide();
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <EditBox parentKey="SearchBox" inherits="SearchBoxTemplate" autoFocus="false">
+                <Size x="0" y="26"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="25" y="-44"/>
+                    <Anchor point="TOPRIGHT" x="-20" y="-44"/>
+                </Anchors>
+                <Scripts>
+                    <OnTextChanged>
+                        SearchBoxTemplate_OnTextChanged(self);
+                        EmojifyPickerFrame:OnSearchChanged(self:GetText());
+                    </OnTextChanged>
+                </Scripts>
+            </EditBox>
+            <Frame parentKey="PreviewBar">
+                <Size x="0" y="52"/>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" x="16" y="16"/>
+                    <Anchor point="BOTTOMRIGHT" x="-16" y="16"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="BACKGROUND">
+                        <Texture setAllPoints="true">
+                            <Color r="0.3" g="0.3" b="0.3" a="0.3"/>
+                        </Texture>
+                    </Layer>
+                    <Layer level="ARTWORK">
+                        <Texture parentKey="Icon">
+                            <Size x="32" y="32"/>
+                            <Anchors>
+                                <Anchor point="LEFT" x="10" y="0"/>
+                            </Anchors>
+                        </Texture>
+                        <FontString parentKey="Code" inherits="GameFontNormalLarge" justifyH="LEFT">
+                            <Anchors>
+                                <Anchor point="LEFT" relativeKey="$parent.Icon" relativePoint="RIGHT" x="10"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Frame>
+            <Frame parentKey="ScrollBox" inherits="WowScrollBoxList">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeKey="$parent.SearchBox" relativePoint="BOTTOMLEFT" x="-4" y="-10"/>
+                    <Anchor point="BOTTOMRIGHT" relativeKey="$parent.PreviewBar" relativePoint="TOPRIGHT" x="-26" y="8"/>
+                </Anchors>
+            </Frame>
+            <EventFrame parentKey="ScrollBar" inherits="MinimalScrollBar">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeKey="$parent.ScrollBox" relativePoint="TOPRIGHT" x="9" y="-3"/>
+                    <Anchor point="BOTTOMLEFT" relativeKey="$parent.ScrollBox" relativePoint="BOTTOMRIGHT" x="9" y="2"/>
+                </Anchors>
+            </EventFrame>
+        </Frames>
+        <Scripts>
+            <OnLoad method="OnLoad"/>
+            <OnShow method="OnShow"/>
+            <OnHide method="OnHide"/>
+            <OnDragStart method="OnDragStart"/>
+            <OnDragStop method="OnDragStop"/>
+        </Scripts>
+    </Frame>
+</Ui>
