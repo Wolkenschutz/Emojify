@@ -22,7 +22,7 @@ pack:AddAnimatedEmoji("dracthyrBlobDance", 37, 64)
     :SetDefaultDelay(20);
 
 pack:AddAnimatedEmoji("dracthyrCry", 3, 64)
-    :SetDefaultDelay(0);
+    :SetDefaultDelay(100);
 
 pack:AddAnimatedEmoji("dracthyrHehe", 8, 64)
     :SetDefaultDelay(30);

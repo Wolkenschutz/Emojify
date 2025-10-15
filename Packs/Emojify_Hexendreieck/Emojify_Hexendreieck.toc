@@ -1,0 +1,11 @@
+## Interface: 110205
+
+## Title: |cff58ebfeTwitch @Hexendreieck|r
+## Notes: Twitch Emotes of Hexendreieck
+## Version: 1.0
+## IconTexture: Interface\AddOns\Emojify_Hexendreieck\icon
+
+## Dependencies: Emojify
+## Group: Emojify
+
+pack.lua

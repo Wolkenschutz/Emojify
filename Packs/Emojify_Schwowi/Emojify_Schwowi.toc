@@ -1,6 +1,6 @@
 ## Interface: 110205
 
-## Title: |cfff4c946Twitch @Schwowi|r
+## Title: |cffffe9d6Twitch @Schwowi|r
 ## Notes: Twitch Emotes of Schwowi
 ## Version: 1.0
 ## IconTexture: Interface\AddOns\Emojify_Schwowi\icon

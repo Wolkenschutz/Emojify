@@ -1,6 +1,6 @@
 ## Interface: 110205
 
-## Title: |cff79f16bTwitch @Murtambil|r
+## Title: |cffc9c5c9Twitch @Murtambil|r
 ## Notes: Twitch Emotes of Murtambil
 ## Version: 1.0
 ## IconTexture: Interface\AddOns\Emojify_Murtambil\icon
