@@ -84,7 +84,7 @@ Emojify_YourPackName/
 ### Example TOC File
 
 ```toc
-## Interface: 110200
+## Interface: 110205
 ## Title: My Custom Emojis
 ## Version: 1.0
 ## Dependencies: Emojify
@@ -161,7 +161,7 @@ Returns an animation object for chaining timing methods.
 ```lua
 :SetDefaultDelay(milliseconds)
 ```
-Sets the default delay between frames in milliseconds. Default is 40ms (25 FPS).
+Sets the default delay between frames in milliseconds. Default is 40ms.
 
 ```lua
 :SetFrameDelay(frameIndex, milliseconds)
@@ -172,8 +172,8 @@ Sets a custom delay for a specific frame. Useful for hold frames or varying timi
 
 **Static Emojis:**
 - Single frame BLP texture
-- Power-of-2 width (64, 128, 256, etc.)
-- Power-of-2 height (64, 128, 256, etc.)
+- Power-of-2 width (16, 32, 64, etc.)
+- Power-of-2 height (16, 32, 64, etc.)
 
 **Animated Emojis:**
 - Horizontal sprite sheet (all frames side-by-side)
@@ -208,7 +208,7 @@ pack:AddAnimatedEmoji("spin", 24, 64)
 
 -- Complex animation with holds
 pack:AddAnimatedEmoji("wink", 30, 64)
-    :SetDefaultDelay(33)      -- ~30 FPS
+    :SetDefaultDelay(33)
     :SetFrameDelay(10, 500)   -- Hold wink closed
     :SetFrameDelay(29, 100);  -- Quick return
 ```
@@ -216,7 +216,7 @@ pack:AddAnimatedEmoji("wink", 30, 64)
 ## Technical Details
 
 - **Animation System**: Horizontal sprite sheets with per-frame timing
-- **Autocomplete**: Trie-based prefix search with usage weighting
+- **Autocomplete**: Substring search with usage weighting
 - **Performance**: Visible animation tracking
 - **Storage**: Usage statistics with exponential decay (30-day window)
 
