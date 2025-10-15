@@ -5,7 +5,7 @@ Modern emojis for World of Warcraft
 Transform your WoW chat with static and animated emojis, smart autocomplete, 
 and hundreds of emojis. Just type `:` and start expressing yourself!
 
-Originally inspired by [Arukori](https://twitch.tv/arukori)'s idea to bring Twitch emotes into World of Warcraft!
+Originally inspired by [Arukori](https://twitch.tv/arukori)'s idea to bring VTuber emotes into World of Warcraft!
 
 ![Emojify Demo](screenshot.gif)
 
@@ -45,16 +45,22 @@ Originally inspired by [Arukori](https://twitch.tv/arukori)'s idea to bring Twit
 
 ## Included Emoji Packs
 
-- **BetterTTV** - Trending community emotes
 - **Twitch: [Arukori](https://twitch.tv/arukori)** - Full emote collection
+- **Twitch: [Hexendreieck](https://twitch.tv/hexendreieck)** - Murloc emotes
+- **Twitch: [Larena5](https://twitch.tv/larena5)** - Full emote collection
 - **Twitch: [MarryofBlood](https://twitch.tv/marryofblood)** - Full emote collection
+- **Twitch: [Murtambil](https://twitch.tv/murtambil)** - Full emote collection
+- **Twitch: [Schwowi](https://twitch.tv/schwowi)** - Full emote collection
 - **Twitch: [xJeevy](https://twitch.tv/xjeevy)** - Full emote collection
+- **BetterTTV** - Trending community emotes
+- **Dracthyr** - Official World of Warcraft Dracthyr emotes
 
 Special thanks to these amazing streamers for allowing their emotes to be included!
 
 ### Want more emotes?
-Open an issue with your emoji suggestions! We're always looking to expand 
-the collection.
+Open an issue with your emoji suggestions! We're always looking to expand the collection.
+
+**Streamers:** Interested in having your emotes included? Feel free to reach out!
 
 ---
 
