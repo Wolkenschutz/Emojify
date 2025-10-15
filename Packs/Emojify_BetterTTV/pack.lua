@@ -18,6 +18,11 @@ pack:AddEmoji("Prayge", 64);
 pack:AddEmoji("sadCat", 64);
 pack:AddEmoji("Sadge", 64);
 pack:AddEmoji("WAJAJA", 64);
+pack:AddEmoji("kappa", 64);
+pack:AddEmoji("LUL", 64);
+pack:AddEmoji("Madge", 64);
+pack:AddEmoji("Pog", 64);
+pack:AddEmoji("PogU", 64);
 pack:AddAnimatedEmoji("blobDance", 37, 64)
     :SetDefaultDelay(20);
 
@@ -133,9 +138,6 @@ pack:AddAnimatedEmoji("pepeJAM", 4, 66, 64)
 pack:AddAnimatedEmoji("PepeLaugh", 30, 64)
     :SetDefaultDelay(20);
 
-pack:AddAnimatedEmoji("PETTHEMODS", 9, 64)
-    :SetDefaultDelay(30);
-
 pack:AddAnimatedEmoji("pikaOMG", 27, 64)
     :SetDefaultDelay(100);
 
@@ -169,4 +171,67 @@ pack:AddAnimatedEmoji("WeSmart", 28, 64)
 
 pack:AddAnimatedEmoji("YesYes", 2, 64)
     :SetDefaultDelay(100);
+
+pack:AddAnimatedEmoji("bongoLove", 2, 64)
+    :SetDefaultDelay(100);
+
+pack:AddAnimatedEmoji("MEOW", 111, 64)
+    :SetDefaultDelay(30)
+    :SetFrameDelay(1, 40)
+    :SetFrameDelay(4, 40)
+    :SetFrameDelay(7, 40)
+    :SetFrameDelay(10, 40)
+    :SetFrameDelay(13, 40)
+    :SetFrameDelay(16, 40)
+    :SetFrameDelay(19, 40)
+    :SetFrameDelay(22, 40)
+    :SetFrameDelay(25, 40)
+    :SetFrameDelay(28, 40)
+    :SetFrameDelay(31, 40)
+    :SetFrameDelay(34, 40)
+    :SetFrameDelay(37, 40)
+    :SetFrameDelay(40, 40)
+    :SetFrameDelay(43, 40)
+    :SetFrameDelay(46, 40)
+    :SetFrameDelay(49, 40)
+    :SetFrameDelay(52, 40)
+    :SetFrameDelay(55, 40)
+    :SetFrameDelay(58, 40)
+    :SetFrameDelay(61, 40)
+    :SetFrameDelay(64, 40)
+    :SetFrameDelay(67, 40)
+    :SetFrameDelay(70, 40)
+    :SetFrameDelay(73, 40)
+    :SetFrameDelay(76, 40)
+    :SetFrameDelay(79, 40)
+    :SetFrameDelay(82, 40)
+    :SetFrameDelay(85, 40)
+    :SetFrameDelay(88, 40)
+    :SetFrameDelay(91, 40)
+    :SetFrameDelay(94, 40)
+    :SetFrameDelay(97, 40)
+    :SetFrameDelay(100, 40)
+    :SetFrameDelay(103, 40)
+    :SetFrameDelay(106, 40)
+    :SetFrameDelay(109, 40)
+    :SetFrameDelay(110, 40);
+
+pack:AddAnimatedEmoji("monkaHmm", 26, 64)
+    :SetDefaultDelay(50)
+    :SetFrameDelay(0, 500)
+    :SetFrameDelay(9, 500)
+    :SetFrameDelay(10, 500)
+    :SetFrameDelay(11, 500)
+    :SetFrameDelay(12, 500)
+    :SetFrameDelay(13, 500)
+    :SetFrameDelay(22, 500)
+    :SetFrameDelay(23, 500)
+    :SetFrameDelay(24, 500)
+    :SetFrameDelay(25, 500);
+
+pack:AddAnimatedEmoji("MYAAA", 29, 64)
+    :SetDefaultDelay(40);
+
+pack:AddAnimatedEmoji("REEEE", 6, 64)
+    :SetDefaultDelay(30);
 

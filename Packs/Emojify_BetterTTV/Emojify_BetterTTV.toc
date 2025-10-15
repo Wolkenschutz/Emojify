@@ -2,7 +2,7 @@
 
 ## Title: |cffDE0014BetterTTV|r
 ## Notes: BetterTTV Emotes
-## Version: 1.0
+## Version: 1.1
 ## IconTexture: Interface\AddOns\Emojify_BetterTTV\icon
 
 ## Dependencies: Emojify
