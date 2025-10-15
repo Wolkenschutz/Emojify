@@ -25,7 +25,7 @@ Localization\deDE.lua
 Core\Init.lua
 Core\EmojiRegistry.lua
 Core\Animation.lua
-Core\Trie.lua
+Core\EmojiSearch.lua
 
 UI\EmojifyPickerButtonMixin.lua
 UI\AutocompleteFrameMixin.lua

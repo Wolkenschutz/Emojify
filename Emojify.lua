@@ -5,7 +5,7 @@
 local addonName, ns = ...;
 
 local Animation = ns.Animation;
-local Trie = ns.Trie;
+local EmojiSearch = ns.EmojiSearch;
 local Autocomplete = ns.Autocomplete;
 local ChatFilter = ns.ChatFilter;
 local ChatBubbles = ns.ChatBubbles;
@@ -40,7 +40,7 @@ local function OnEvent(self, event, addon)
     -- Rebuild data after a short delay to ensure all packs are loaded
     C_Timer.After(1, function()
         EmojiRegistry.RebuildEmojiCodes();
-        Trie.RebuildAutocomplete();
+        EmojiSearch.RebuildSearchIndex();
     end);
 end
 

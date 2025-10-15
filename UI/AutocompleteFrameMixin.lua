@@ -5,7 +5,7 @@
 local addonName, ns = ...;
 
 local Animation = ns.Animation;
-local Trie = ns.Trie;
+local EmojiSearch = ns.EmojiSearch;
 
 local MAX_VISIBLE_AUTOCOMPLETE = ns.Constants.MAX_VISIBLE_AUTOCOMPLETE;
 local TRIGGER_CHAR = ns.Constants.TRIGGER_CHAR;
@@ -251,7 +251,7 @@ function EmojifyAutocompleteFrameMixin:InsertSelectedEmoji(emojiInfo)
     ACTIVE_CHAT_EDIT_BOX:SetCursorPosition(#before + #emojiInfo.code + 1);
     ACTIVE_CHAT_EDIT_BOX:SetFocus();
 
-    Trie.IncrementUsage(emojiInfo.code);
+    EmojiSearch.IncrementUsage(emojiInfo.code);
     self:Hide();
 end
 

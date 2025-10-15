@@ -6,7 +6,7 @@ local addonName, ns = ...;
 
 ns.Autocomplete = {};
 local Autocomplete = ns.Autocomplete;
-local Trie = ns.Trie;
+local EmojiSearch = ns.EmojiSearch;
 
 local MIN_SEARCH_LENGTH = ns.Constants.MIN_SEARCH_LENGTH;
 local DEBOUNCE_DELAY = ns.Constants.DEBOUNCE_DELAY;
@@ -48,12 +48,12 @@ local function GetCurrentWord(EditBox)
 end
 
 local function PerformSearch(word)
-    if (word == "" or #word < MIN_SEARCH_LENGTH or not Trie.HasMatches(word)) then
+    if (word == "" or #word < MIN_SEARCH_LENGTH or not EmojiSearch.HasMatches(word)) then
         EmojifyAutocompleteFrame:Hide();
         return;
     end
 
-    local matches = Trie.FindMatches(word);
+    local matches = EmojiSearch.FindMatches(word);
     EmojifyAutocompleteFrame:Show(matches, word);
 
     if (ACTIVE_CHAT_EDIT_BOX) then
