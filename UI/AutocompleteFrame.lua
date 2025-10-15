@@ -106,15 +106,7 @@ function Autocomplete.OnEditBoxKeyDown(key)
     if (EmojifyAutocompleteFrame:IsShown() and (key == "ENTER" or key == "RETURN")) then
         local EditBox = ChatEdit_GetActiveWindow() or ChatEdit_GetLastActiveWindow();
         if (EditBox) then
-            local oldText = EditBox:GetText();
             EditBox:SetText("");
-
-            -- Restore text after sending if needed
-            C_Timer.After(0.05, function()
-                if (oldText and oldText ~= "") then
-                    EditBox:SetText(oldText);
-                end
-            end);
         end
 
         EmojifyAutocompleteFrame:SendSelectedEmoji();
