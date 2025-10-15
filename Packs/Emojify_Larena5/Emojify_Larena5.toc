@@ -1,0 +1,11 @@
+## Interface: 110200
+
+## Title: |cff61a5b5Twitch @Larena5|r
+## Notes: Twitch Emotes of Larena5
+## Version: 1.0
+## IconTexture: Interface\AddOns\Emojify_Larena5\icon
+
+## Dependencies: Emojify
+## Group: Emojify
+
+pack.lua
