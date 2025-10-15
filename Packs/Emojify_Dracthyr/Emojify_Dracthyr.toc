@@ -1,0 +1,11 @@
+## Interface: 110205
+
+## Title: |cff71ecb6Dracthyr|r
+## Notes: Official WoW Dracthyr Emojis
+## Version: 1.0
+## IconTexture: Interface\AddOns\Emojify_Dracthyr\icon
+
+## Dependencies: Emojify
+## Group: Emojify
+
+pack.lua
