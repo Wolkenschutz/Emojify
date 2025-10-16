@@ -123,9 +123,17 @@ end
 
 function EmojifyAutocompleteFrameMixin:OnShow()
     if (ACTIVE_CHAT_EDIT_BOX) then
-        self.ignoreArrows = ACTIVE_CHAT_EDIT_BOX:GetAltArrowKeyMode();
         self.ACTIVE_CHAT_EDIT_BOX = ACTIVE_CHAT_EDIT_BOX;
+        self.ignoreArrows = ACTIVE_CHAT_EDIT_BOX:GetAltArrowKeyMode();
+
         ACTIVE_CHAT_EDIT_BOX:SetAltArrowKeyMode(false);
+
+        -- ElvUI
+        self.historyLines = ACTIVE_CHAT_EDIT_BOX.historyLines;
+        ACTIVE_CHAT_EDIT_BOX.historyLines = nil;
+        -- Prat
+        self.history_lines = ACTIVE_CHAT_EDIT_BOX.history_lines;
+        ACTIVE_CHAT_EDIT_BOX.history_lines = {};
     end
 
     self:UpdateAutocompleteAnimations();
@@ -134,6 +142,14 @@ end
 function EmojifyAutocompleteFrameMixin:OnHide()
     if (self.ACTIVE_CHAT_EDIT_BOX) then
         self.ACTIVE_CHAT_EDIT_BOX:SetAltArrowKeyMode(self.ignoreArrows);
+
+        -- ElvUI
+        self.ACTIVE_CHAT_EDIT_BOX.historyLines = self.historyLines;
+        self.historyLines = nil;
+        -- Prat
+        self.ACTIVE_CHAT_EDIT_BOX.history_lines = self.history_lines;
+        self.history_lines = nil;
+
         self.ACTIVE_CHAT_EDIT_BOX = nil;
         self.ignoreArrows = nil;
     end
@@ -219,11 +235,12 @@ function EmojifyAutocompleteFrameMixin:SelectPrevious()
 end
 
 function EmojifyAutocompleteFrameMixin:ScrollToSelection()
-    if (#self.matches == 0) then
+    local numMatches = #self.matches;
+    if (numMatches == 0) then
         return;
     end
 
-    self.ScrollBox:ScrollToElementDataIndex(self.selection, ScrollBoxConstants.AlignCenter);
+    self.ScrollBox:ScrollToElementDataIndex(self.selection, numMatches == 2 and ScrollBoxConstants.AlignBegin or ScrollBoxConstants.AlignCenter);
 end
 
 function EmojifyAutocompleteFrameMixin:InsertSelectedEmoji(emojiInfo)
