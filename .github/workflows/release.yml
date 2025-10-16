@@ -32,7 +32,7 @@ jobs:
           tag: ${{ github.event.release.tag_name }}
           body: ${{ steps.changelog.outputs.changes }}
 
-      # - name: Pack it up and upload it
-      #   uses: BigWigsMods/packager@v2
-      #   with:
-      #     args: -p 1363592 -n "{package-name}-{project-version}"
+      - name: Pack it up and upload it
+        uses: BigWigsMods/packager@v2
+        with:
+          args: -p 1363592 -n "{package-name}-{project-version}"
