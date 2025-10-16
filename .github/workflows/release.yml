@@ -33,12 +33,6 @@ jobs:
           tag: ${{ github.event.release.tag_name }}
           body: ${{ steps.changelog.outputs.changes }}
           
-      - name: Update Changelog
-        uses: stefanzweifel/changelog-updater-action@v1
-        with:
-          latest-version: ${{ github.event.release.tag_name }}
-          release-notes: ${{ steps.changelog.outputs.changes }}
-          
       - name: Create Latest Changelog    
         run: echo "${{ steps.changelog.outputs.changes }}" >> CHANGELOG_LATEST.md
 
