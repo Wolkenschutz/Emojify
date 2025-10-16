@@ -28,6 +28,7 @@ jobs:
       - name: Update Release
         uses: mini-bomba/create-github-release@v1.2.0
         with:
+          skip_tag_creation: true
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.event.release.tag_name }}
           body: ${{ steps.changelog.outputs.changes }}
