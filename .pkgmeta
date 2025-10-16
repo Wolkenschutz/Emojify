@@ -1,0 +1,18 @@
+package-as: Emojify
+
+move-folders:
+    Emojify/Packs/Emojify_Arukori: Emojify_Arukori
+    Emojify/Packs/Emojify_BetterTTV: Emojify_BetterTTV
+    Emojify/Packs/Emojify_Dracthyr: Emojify_Dracthyr
+    Emojify/Packs/Emojify_Hexendreieck: Emojify_Hexendreieck
+    Emojify/Packs/Emojify_Larena5: Emojify_Larena5
+    Emojify/Packs/Emojify_MarryofBlood: Emojify_MarryofBlood
+    Emojify/Packs/Emojify_Murtambil: Emojify_Murtambil
+    Emojify/Packs/Emojify_Schwowi: Emojify_Schwowi
+    Emojify/Packs/Emojify_xJeevy: Emojify_xJeevy
+
+ignore:
+  - .gitignore
+  - .github
+  - screenshot.gif
+  - README.md
