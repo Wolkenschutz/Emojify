@@ -11,7 +11,7 @@ jobs:
 
     env:
       CF_API_KEY: ${{ secrets.CF_API_KEY }}
-            
+
     steps:
       - name: Clone Project
         uses: actions/checkout@v4.1.4
@@ -31,6 +31,15 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.event.release.tag_name }}
           body: ${{ steps.changelog.outputs.changes }}
+          
+      - name: Update Changelog
+        uses: stefanzweifel/changelog-updater-action@v1
+        with:
+          latest-version: ${{ github.event.release.tag_name }}
+          release-notes: ${{ steps.changelog.outputs.changes }}
+          
+      - name: Create Latest Changelog    
+        run: echo "${{ steps.changelog.outputs.changes }}" >> CHANGELOG_LATEST.md
 
       - name: Pack it up and upload it
         uses: BigWigsMods/packager@v2

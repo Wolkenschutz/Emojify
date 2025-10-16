@@ -16,3 +16,7 @@ ignore:
   - .github
   - screenshot.gif
   - README.md
+
+manual-changelog:
+  filename: CHANGELOG_LATEST.md
+  markup-type: markdown
