@@ -170,10 +170,7 @@
         </Scripts>
     </Button>
 
-    <Frame name="EmojifyPickerFrame" parent="UIParent" frameStrata="DIALOG" toplevel="true" enableMouse="true" movable="true" clampedToScreen="true" registerForDrag="LeftButton" inherits="BackdropTemplate" mixin="EmojifyPickerFrameMixin" hidden="true">
-        <KeyValues>
-            <KeyValue key="backdropInfo" value="BACKDROP_DIALOG_32_32" type="global"/>
-        </KeyValues>
+    <Frame name="EmojifyPickerFrame" parent="UIParent" frameStrata="DIALOG" toplevel="true" enableMouse="true" movable="true" clampedToScreen="true" registerForDrag="LeftButton" mixin="EmojifyPickerFrameMixin" hidden="true">
         <Size x="380" y="520"/>
         <Anchors>
             <Anchor point="CENTER"/>
@@ -188,6 +185,7 @@
             </Layer>
         </Layers>
         <Frames>
+            <Frame parentKey="Border" inherits="DialogBorderTranslucentTemplate"/>
             <Button parentKey="CloseButton" inherits="UIPanelCloseButton">
                 <Anchors>
                     <Anchor point="TOPRIGHT" x="-7" y="-7"/>

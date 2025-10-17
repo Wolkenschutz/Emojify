@@ -34,7 +34,7 @@ jobs:
           body: ${{ steps.changelog.outputs.changes }}
           
       - name: Create Latest Changelog    
-        run: echo "${{ steps.changelog.outputs.changes }}" >> CHANGELOG_LATEST.md
+        run: echo "${{ steps.changelog.outputs.changes }}" >> CHANGELOG.md
 
       - name: Pack it up and upload it
         uses: BigWigsMods/packager@v2

@@ -85,7 +85,6 @@ end
 EmojifyPickerFrameMixin = {};
 
 function EmojifyPickerFrameMixin:OnLoad()
-    BackdropTemplateMixin.OnBackdropLoaded(self);
     table.insert(UISpecialFrames, self:GetName());
 
     local view = CreateScrollBoxListLinearView();
