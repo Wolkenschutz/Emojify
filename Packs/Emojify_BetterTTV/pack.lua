@@ -18,7 +18,7 @@ pack:AddEmoji("Prayge", 64);
 pack:AddEmoji("sadCat", 64);
 pack:AddEmoji("Sadge", 64);
 pack:AddEmoji("WAJAJA", 64);
-pack:AddEmoji("kappa", 64);
+pack:AddEmoji("Kappa", 64);
 pack:AddEmoji("LUL", 64);
 pack:AddEmoji("Madge", 64);
 pack:AddEmoji("Pog", 64);
