@@ -1,17 +1,21 @@
 --------------------------------------------------------------------------------
--- Emojify - Emoji Registry
+-- Emojify - Emoji Registry & Pack API
+-- Public API for registering emoji packs and managing emoji data
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 local EmojiRegistry = {};
 ns.EmojiRegistry = EmojiRegistry;
+
+local Animation = ns.Animation;
+local Constants = ns.Constants;
 
 local emojis = ns.Emojis;
 local animatedEmojis = ns.AnimatedEmojis;
 local packs = ns.Packs;
 
-local DEFAULT_FRAME_DELAY = ns.Constants.DEFAULT_FRAME_DELAY;
+local DEFAULT_FRAME_DELAY = Constants.DEFAULT_FRAME_DELAY;
 
 local EmojifyAnimatedEmojiMixin = {};
 
@@ -74,7 +78,7 @@ function EmojifyPackMixin:AddAnimatedEmoji(code, frames, widthOrSize, height)
 
     animatedEmojis[code] = data;
 
-    ns.Animation.RegisterAnimatedEmoji(code, data);
+    Animation.RegisterAnimatedEmoji(code, data);
 
     local animatedEmoji = CreateFromMixins(EmojifyAnimatedEmojiMixin);
     animatedEmoji.code = code;
@@ -137,7 +141,7 @@ function EmojiRegistry.GetRandomEmoji()
         return {
             code = "NONE",
             data = {
-                texture = string.format("Interface\\AddOns\\%s\\icon", addonName),
+                texture = string.format("Interface\\AddOns\\%s\\icon", ADDON_NAME),
                 width = 22,
                 height = 22,
                 textureWidth = 32,

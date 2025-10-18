@@ -1,12 +1,12 @@
 --------------------------------------------------------------------------------
--- Emojify - Picker Frame
--- Main emote picker window with search and pack sections
+-- Emojify - Visual Picker Controller
+-- Manages visual picker data, sections and usage tracking
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
-ns.Picker = {};
-local Picker = ns.Picker;
+ns.VisualPicker = {};
+local VisualPicker = ns.VisualPicker;
 
 local FREQUENT_COUNT = 18;
 local USAGE_DECAY_DAYS = ns.Constants.USAGE_DECAY_DAYS;
@@ -43,7 +43,7 @@ local function BuildFrequentlyUsed()
             data = data,
             isAnimated = false,
             packName = string.match(data.texture, "Interface\\AddOns\\Emojify_([^\\]+)"),
-            usageCount = Picker.GetUsageCount(code)
+            usageCount = VisualPicker.GetUsageCount(code)
         });
     end
 
@@ -53,7 +53,7 @@ local function BuildFrequentlyUsed()
             data = data,
             isAnimated = true,
             packName = string.match(data.texture, "Interface\\AddOns\\Emojify_([^\\]+)"),
-            usageCount = Picker.GetUsageCount(code)
+            usageCount = VisualPicker.GetUsageCount(code)
         });
     end
 
@@ -111,14 +111,13 @@ end
 local function BuildAllSections()
     local sections = {};
 
-    for packName, pack in pairs(ns.Packs) do
+    for packName in pairs(ns.Packs) do
         local packEmotes = BuildPackEmotes(packName);
         if (#packEmotes > 0) then
             table.insert(sections, {
                 packName = packName,
                 emotes = packEmotes,
-                isCollapsed = IsPackCollapsed(packName),
-                colorCode = pack.colorCode or "ffffff",
+                isCollapsed = IsPackCollapsed(packName)
             });
         end
     end
@@ -169,62 +168,58 @@ local function FilterEmotesBySearch(searchText)
         end
     end
 
-    if (#results > 0) then
-        return { {
-            packName = EMOJIFY_SEARCH_RESULTS,
-            emotes = results,
-            isCollapsed = false
-        } };
-    end
-
-    return {};
+    return { {
+        packName = EMOJIFY_SEARCH_RESULTS,
+        emotes = results,
+        isCollapsed = false
+    } };
 end
 
-function Picker.SendEmoji(code)
+function VisualPicker.SendEmoji(code)
     local EditBox = ChatEdit_GetActiveWindow() or ChatEdit_GetLastActiveWindow();
     if (EditBox) then
         local oldText = EditBox:GetText();
         EditBox:SetText(code);
         ChatEdit_SendText(EditBox, 1);
         EditBox:SetText(oldText or "");
-        Picker.IncrementUsage(code);
+        VisualPicker.IncrementUsage(code);
     end
 end
 
-function Picker.GetAllSections()
+function VisualPicker.GetAllSections()
     return BuildAllSections();
 end
 
-function Picker.FilterBySearch(searchText)
+function VisualPicker.FilterBySearch(searchText)
     return FilterEmotesBySearch(searchText);
 end
 
-function Picker.ToggleSection(packName)
+function VisualPicker.ToggleSection(packName)
     TogglePackCollapsed(packName);
-    EmojifyPickerFrame:RebuildPicker();
+    EmojifyVisualPickerFrame:RebuildPicker();
 end
 
-function Picker.ExtractPackColor(packName)
+function VisualPicker.ExtractPackColorCode(packName)
     local pack = ns.Packs[packName];
     if (not pack) then
-        return "ffffff";
+        return "cccccc";
     end
 
     local title = C_AddOns.GetAddOnMetadata("Emojify_" .. packName, "Title") or "";
     local colorCode = string.match(title, "|cff(%x%x%x%x%x%x)");
-    return colorCode or "ffffff";
+    return colorCode or "cccccc";
 end
 
-function Picker.IncrementUsage(code)
+function VisualPicker.IncrementUsage(code)
     local currentWeighted = GetWeightedUsage(code);
     EmojifyDB.usageCount[code] = currentWeighted + 1;
     EmojifyDB.lastUsed[code] = time();
 end
 
-function Picker.GetUsageCount(code)
+function VisualPicker.GetUsageCount(code)
     return GetWeightedUsage(code);
 end
 
-function Picker.OnUpdate()
-    EmojifyPickerFrame:UpdateAnimations()
+function VisualPicker.OnUpdate()
+    EmojifyVisualPickerFrame:UpdateAnimations()
 end

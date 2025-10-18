@@ -1,8 +1,9 @@
 --------------------------------------------------------------------------------
--- Emojify - Chat Bubbles
+-- Emojify - Chat Bubble Handler
+-- Updates emoji textures in 3D world chat bubbles
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 ns.ChatBubbles = {};
 local ChatBubbles = ns.ChatBubbles;

@@ -1,8 +1,9 @@
 --------------------------------------------------------------------------------
--- Emojify - Emoji Search
+-- Emojify - Emoji Search Engine
+-- Provides search functionality with usage-based ranking
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 ns.EmojiSearch = {};
 local EmojiSearch = ns.EmojiSearch;
@@ -13,7 +14,7 @@ local animatedEmojis = ns.AnimatedEmojis;
 local searchableEmojis = {};
 
 local function GetWeightedUsage(code)
-    return ns.Picker.GetUsageCount(code);
+    return ns.VisualPicker.GetUsageCount(code);
 end
 
 function EmojiSearch.RebuildSearchIndex()
@@ -86,7 +87,7 @@ function EmojiSearch.FindMatches(searchText)
 end
 
 function EmojiSearch.IncrementUsage(code)
-    ns.Picker.IncrementUsage(code);
+    ns.VisualPicker.IncrementUsage(code);
 
     for _, emoji in ipairs(searchableEmojis) do
         if (emoji.code == code) then

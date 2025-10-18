@@ -1,93 +1,16 @@
 --------------------------------------------------------------------------------
--- Emojify - Autocomplete Mixins
+-- Emojify - Autocomplete Frame Mixin
+-- Dropdown frame that displays matching emojis during typing
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 local Animation = ns.Animation;
 local EmojiSearch = ns.EmojiSearch;
+local VisualPicker = ns.VisualPicker;
 
 local MAX_VISIBLE_AUTOCOMPLETE = ns.Constants.MAX_VISIBLE_AUTOCOMPLETE;
 local TRIGGER_CHAR = ns.Constants.TRIGGER_CHAR;
-
-EmojifyAutocompleteButtonMixin = {};
-
-function EmojifyAutocompleteButtonMixin:SetEmojiInfo(emojiInfo)
-    self.emojiInfo = emojiInfo;
-    self.dataIndex = emojiInfo.dataIndex;
-
-    local data = emojiInfo.data;
-    local frameWidth = data.width;
-    local frameHeight = data.height;
-    local displayWidth = math.floor(self.Texture:GetHeight() * (frameWidth / frameHeight));
-
-    self.Text:SetText(emojiInfo.code);
-    self.Texture:SetTexture(data.texture);
-    self.Texture:SetWidth(displayWidth);
-
-    if (emojiInfo.isAnimated) then
-        self:UpdateAnimation();
-    else
-        self.Texture:SetTexCoord(
-            0,
-            frameWidth / data.textureWidth,
-            0,
-            frameHeight / data.textureHeight
-        );
-    end
-end
-
-function EmojifyAutocompleteButtonMixin:UpdateAnimation()
-    if (not self.emojiInfo or not self.emojiInfo.isAnimated) then
-        return;
-    end
-
-    local data = self.emojiInfo.data;
-    local frameWidth = data.width;
-    local frameHeight = data.height;
-    local frame = Animation.GetCurrentFrame(self.emojiInfo.code);
-    local left = frame * frameWidth;
-    local right = left + frameWidth;
-
-    self.Texture:SetTexCoord(
-        left / data.textureWidth,
-        right / data.textureWidth,
-        0,
-        frameHeight / data.textureHeight
-    );
-end
-
-function EmojifyAutocompleteButtonMixin:SetSelected(selected)
-    self.selected = selected;
-
-    if (self:IsMouseOver()) then
-        self.Highlight:Show();
-        self.Highlight:SetColorTexture(0.3, 0.3, 0.3, 0.3);
-    elseif (selected) then
-        self.Highlight:Show();
-        self.Highlight:SetColorTexture(0.4, 0.4, 0.8, 0.5);
-    elseif (not self:IsMouseOver()) then
-        self.Highlight:Hide();
-    end
-end
-
-function EmojifyAutocompleteButtonMixin:OnClick()
-    local Frame = self:GetParent():GetParent():GetParent();
-    Frame:OnButtonClick(self);
-end
-
-function EmojifyAutocompleteButtonMixin:OnEnter()
-    if (not self.selected) then
-        self.Highlight:Show();
-        self.Highlight:SetColorTexture(0.3, 0.3, 0.3, 0.3);
-    end
-end
-
-function EmojifyAutocompleteButtonMixin:OnLeave()
-    if (not self.selected) then
-        self.Highlight:Hide();
-    end
-end
 
 EmojifyAutocompleteFrameMixin = {};
 
@@ -117,8 +40,8 @@ function EmojifyAutocompleteFrameMixin:OnLoad()
     ScrollUtil.InitScrollBoxListWithScrollBar(self.ScrollBox, self.ScrollBar, view);
 
     self.matches = {};
-    self.selection = 1;
     self.currentSearch = "";
+    self.selection = 1;
 end
 
 function EmojifyAutocompleteFrameMixin:OnShow()
@@ -135,8 +58,6 @@ function EmojifyAutocompleteFrameMixin:OnShow()
         self.history_lines = ACTIVE_CHAT_EDIT_BOX.history_lines;
         ACTIVE_CHAT_EDIT_BOX.history_lines = {};
     end
-
-    self:UpdateAutocompleteAnimations();
 end
 
 function EmojifyAutocompleteFrameMixin:OnHide()
@@ -157,7 +78,7 @@ function EmojifyAutocompleteFrameMixin:OnHide()
     Animation.SetVisibleAnimationsFromAutocomplete({});
 end
 
-function EmojifyAutocompleteFrameMixin:Show(matches, searchText)
+function EmojifyAutocompleteFrameMixin:SetMatches(matches, searchText)
     self.matches = matches;
     self.currentSearch = searchText;
     self.selection = 1;
@@ -172,9 +93,12 @@ function EmojifyAutocompleteFrameMixin:Show(matches, searchText)
     local visibleCount = math.min(math.max(2, #matches), MAX_VISIBLE_AUTOCOMPLETE);
     local frameHeight = 16 + (visibleCount * 28);
     self:SetHeight(frameHeight);
+    self:Show();
 
-    self:UpdateSelection();
-    self:SetShown(true);
+    C_Timer.After(0, function()
+        self:UpdateSelection();
+        self:UpdateAnimations();
+    end);
 end
 
 function EmojifyAutocompleteFrameMixin:UpdateSelection()
@@ -188,24 +112,12 @@ function EmojifyAutocompleteFrameMixin:UpdateAnimations()
         return;
     end
 
-    self.ScrollBox:ForEachFrame(function(Button)
-        Button:UpdateAnimation();
-    end);
-
-    self:UpdateSelection();
-    self:UpdateAutocompleteAnimations();
-end
-
-function EmojifyAutocompleteFrameMixin:UpdateAutocompleteAnimations()
-    if (not self:IsShown()) then
-        return;
-    end
-
     local found = {};
 
     self.ScrollBox:ForEachFrame(function(Button)
-        if (Button:IsShown() and Button.emojiInfo and Button.emojiInfo.isAnimated) then
+        if (Button.emojiInfo and Button.emojiInfo.isAnimated) then
             found[Button.emojiInfo.code] = true;
+            Button:UpdateAnimation();
         end
     end);
 
@@ -295,7 +207,7 @@ function EmojifyAutocompleteFrameMixin:SendSelectedEmoji()
     end
 
     local selectedEmoji = self.matches[self.selection];
-    ns.Picker.SendEmoji(selectedEmoji.code);
+    VisualPicker.SendEmoji(selectedEmoji.code);
 
     self:Hide();
 end

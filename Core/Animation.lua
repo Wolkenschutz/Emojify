@@ -1,18 +1,20 @@
 --------------------------------------------------------------------------------
--- Emojify - Animation System
+-- Emojify - Frame-based Animation System
+-- Handles animated emoji frame updates and texture coordinate management
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 ns.Animation = {};
 local Animation = ns.Animation;
+local Constants = ns.Constants;
 
 local emojis = ns.Emojis;
 local animatedEmojis = ns.AnimatedEmojis;
 local allEmojiCodes = ns.AllEmojiCodes;
 
-local DEFAULT_HEIGHT = ns.Constants.DEFAULT_HEIGHT;
-local DEFAULT_FRAME_DELAY = ns.Constants.DEFAULT_FRAME_DELAY;
+local DEFAULT_HEIGHT = Constants.DEFAULT_HEIGHT;
+local DEFAULT_FRAME_DELAY = Constants.DEFAULT_FRAME_DELAY;
 
 local activeAnimations = {};
 local visibleInChat = {};

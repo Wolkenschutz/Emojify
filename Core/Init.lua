@@ -1,8 +1,9 @@
 --------------------------------------------------------------------------------
--- Emojify - Init
+-- Emojify - Core Initialization & Constants
+-- Defines global constants, namespaces and utility functions
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 -- Public API
 Emojify = {};

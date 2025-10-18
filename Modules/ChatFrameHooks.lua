@@ -1,8 +1,9 @@
 --------------------------------------------------------------------------------
--- Emojify - Chat Frame Hooks
+-- Emojify - Chat Frame Integration
+-- Hooks into chat frames for autocomplete and visual picker button integration
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 ns.ChatFrameHooks = {};
 local ChatFrameHooks = ns.ChatFrameHooks;
@@ -127,19 +128,19 @@ local function HookChatFrame(frameName)
             end);
         end
 
-        if (not ChatFrame.EmojifyPicker) then
-            local EmojifyPicker = CreateFrame("Button", nil, ChatFrame, "EmojifyPickerButtonTemplate");
-            EmojifyPicker:SetPoint("BOTTOMRIGHT", -10, 10);
+        if (not ChatFrame.EmojifyVisualPicker) then
+            local Button = CreateFrame("Button", nil, ChatFrame, "EmojifyVisualPickerChatButtonTemplate");
+            Button:SetPoint("BOTTOMRIGHT", -10, 10);
 
             ChatFrame:HookScript("OnEnter", function()
-                EmojifyPicker:Show();
+                Button:Show();
             end);
             ChatFrame:HookScript("OnLeave", function()
-                EmojifyPicker:Hide();
+                Button:Hide();
                 GameTooltip:Hide();
             end);
 
-            ChatFrame.EmojifyPicker = EmojifyPicker;
+            ChatFrame.EmojifyVisualPicker = Button;
         end
     end
 end

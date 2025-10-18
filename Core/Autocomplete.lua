@@ -1,16 +1,18 @@
 --------------------------------------------------------------------------------
--- Emojify - Autocomplete Frame Controller
+-- Emojify - Autocomplete Controller
+-- Manages autocomplete behavior, search debouncing and keyboard navigation
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 ns.Autocomplete = {};
 local Autocomplete = ns.Autocomplete;
 local EmojiSearch = ns.EmojiSearch;
+local Constants = ns.Constants;
 
-local MIN_SEARCH_LENGTH = ns.Constants.MIN_SEARCH_LENGTH;
-local DEBOUNCE_DELAY = ns.Constants.DEBOUNCE_DELAY;
-local TRIGGER_CHAR = ns.Constants.TRIGGER_CHAR;
+local MIN_SEARCH_LENGTH = Constants.MIN_SEARCH_LENGTH;
+local DEBOUNCE_DELAY = Constants.DEBOUNCE_DELAY;
+local TRIGGER_CHAR = Constants.TRIGGER_CHAR;
 
 local searchTimer;
 
@@ -54,7 +56,7 @@ local function PerformSearch(word)
     end
 
     local matches = EmojiSearch.FindMatches(word);
-    EmojifyAutocompleteFrame:Show(matches, word);
+    EmojifyAutocompleteFrame:SetMatches(matches, word);
 
     if (ACTIVE_CHAT_EDIT_BOX) then
         EmojifyAutocompleteFrame:ClearAllPoints();
@@ -114,12 +116,5 @@ function Autocomplete.OnEditBoxKeyDown(key)
 end
 
 function Autocomplete.OnUpdate()
-    if (not ACTIVE_CHAT_EDIT_BOX) then
-        EmojifyAutocompleteFrame:Hide();
-        return;
-    end
-
-    if (EmojifyAutocompleteFrame:IsShown()) then
-        EmojifyAutocompleteFrame:UpdateAnimations();
-    end
+    EmojifyAutocompleteFrame:UpdateAnimations();
 end

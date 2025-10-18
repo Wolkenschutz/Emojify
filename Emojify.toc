@@ -23,15 +23,18 @@ Localization\enUS.lua
 Localization\deDE.lua
 
 Core\Init.lua
-Core\EmojiRegistry.lua
-Core\Animation.lua
 Core\EmojiSearch.lua
+Core\Animation.lua
+Core\Autocomplete.lua
+Core\VisualPicker.lua
+Core\EmojiRegistry.lua
 
-UI\EmojifyPickerButtonMixin.lua
-UI\AutocompleteFrameMixin.lua
-UI\AutocompleteFrame.lua
-UI\EmojifyPicker.lua
-ui\EmojifyPickerMixin.lua
+UI\EmojifyAutocompleteButton.lua
+UI\EmojifyAutocompleteFrame.lua
+UI\EmojifyVisualPickerChatButton.lua
+UI\EmojifyVisualPickerPackHeaderButton.lua
+UI\EmojifyVisualPickerGridButton.lua
+UI\EmojifyVisualPickerFrame.lua
 UI\Templates.xml
 
 Modules\ChatFilter.lua

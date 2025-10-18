@@ -1,21 +1,21 @@
 --------------------------------------------------------------------------------
--- Emojify - Picker Button
--- Random emoji button for opening the emoji picker
+-- Emojify - Visual Picker Chat Button Mixin
+-- Button attached to chat frames to open the visual picker
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 local EmojiRegistry = ns.EmojiRegistry;
 
-EmojifyPickerButtonMixin = {};
+EmojifyVisualPickerChatButtonMixin = {};
 
-function EmojifyPickerButtonMixin:OnLoad()
+function EmojifyVisualPickerChatButtonMixin:OnLoad()
     C_Timer.After(1.2, function()
         self:UpdateRandomTexture();
     end);
 end
 
-function EmojifyPickerButtonMixin:UpdateRandomTexture()
+function EmojifyVisualPickerChatButtonMixin:UpdateRandomTexture()
     local emojiInfo = EmojiRegistry.GetRandomEmoji();
     self.emojiInfo = emojiInfo;
 
@@ -34,11 +34,11 @@ function EmojifyPickerButtonMixin:UpdateRandomTexture()
     );
 end
 
-function EmojifyPickerButtonMixin:OnClick()
-    EmojifyPickerFrame:SetShown(not EmojifyPickerFrame:IsShown());
+function EmojifyVisualPickerChatButtonMixin:OnClick()
+    EmojifyVisualPickerFrame:SetShown(not EmojifyVisualPickerFrame:IsShown());
 end
 
-function EmojifyPickerButtonMixin:OnEnter()
+function EmojifyVisualPickerChatButtonMixin:OnEnter()
     if (self.mouseEnter) then
         return;
     end
@@ -54,7 +54,7 @@ function EmojifyPickerButtonMixin:OnEnter()
     GameTooltip:Show();
 end
 
-function EmojifyPickerButtonMixin:OnLeave()
+function EmojifyVisualPickerChatButtonMixin:OnLeave()
     self.Texture:SetDesaturation(1);
     self.mouseEnter = false;
 

@@ -1,8 +1,9 @@
 --------------------------------------------------------------------------------
--- Emojify - Chat Filter
+-- Emojify - Chat Message Filter
+-- Processes incoming chat messages and replaces emoji codes with textures
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
 ns.ChatFilter = {};
 local ChatFilter = ns.ChatFilter;

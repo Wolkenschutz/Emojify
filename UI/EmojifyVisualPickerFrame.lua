@@ -1,93 +1,33 @@
 --------------------------------------------------------------------------------
--- Emojify - Picker UI Mixins
--- UI components for the emote picker window (HORIZONTAL sprite sheets)
+-- Emojify - Visual Picker Frame Mixin
+-- Main browsable emoji picker window with search and categories
 --------------------------------------------------------------------------------
 
-local addonName, ns = ...;
+local ADDON_NAME, ns = ...;
 
-local Picker = ns.Picker;
 local Animation = ns.Animation;
+local VisualPicker = ns.VisualPicker;
+local EmojiRegistry = ns.EmojiRegistry;
 
 local GRID_COLUMNS = 6;
 
-EmojifyPickerGridButtonMixin = {};
+EmojifyVisualPickerMixin = {};
 
-function EmojifyPickerGridButtonMixin:SetEmoteInfo(emoteInfo)
-    self.emoteInfo = emoteInfo;
+function EmojifyVisualPickerMixin:OnLoad()
+    self:SetTitle("Emojify - Visual Picker");
+    ButtonFrameTemplate_HidePortrait(self);
+    ButtonFrameTemplate_HideAttic(self);
 
-    local data = emoteInfo.data;
-    local frameWidth = data.width;
-    local frameHeight = data.height;
-    local buttonSize = self:GetHeight();
-    local displayHeight = buttonSize - 4;
-    local displayWidth = math.floor(displayHeight * (frameWidth / frameHeight));
+    self.Inset:SetPoint("TOPLEFT", 12, -57);
+    self.Inset:SetPoint("BOTTOMRIGHT", -27, 60);
+    self.Inset.Bg:SetHorizTile(false);
+    self.Inset.Bg:SetVertTile(false);
+    self.Inset.Bg:SetAtlas("QuestLog-main-background");
+    self.Inset.Bg:SetAlpha(0.8);
 
-    self.Texture:SetTexture(data.texture);
-    self.Texture:SetSize(displayWidth, displayHeight);
-
-    if (emoteInfo.isAnimated) then
-        self:UpdateAnimation();
-    else
-        self.Texture:SetTexCoord(
-            0,
-            frameWidth / data.textureWidth,
-            0,
-            frameHeight / data.textureHeight
-        );
-    end
-end
-
-function EmojifyPickerGridButtonMixin:UpdateAnimation()
-    local data = self.emoteInfo.data;
-    local frameWidth = data.width;
-    local frameHeight = data.height;
-    local frame = Animation.GetCurrentFrame(self.emoteInfo.code);
-    local left = frame * frameWidth;
-    local right = left + frameWidth;
-
-    self.Texture:SetTexCoord(
-        left / data.textureWidth,
-        right / data.textureWidth,
-        0,
-        frameHeight / data.textureHeight
-    );
-end
-
-function EmojifyPickerGridButtonMixin:OnClick()
-    Picker.SendEmoji(self.emoteInfo.code);
-end
-
-function EmojifyPickerGridButtonMixin:OnEnter()
-    self.Highlight:Show();
-    EmojifyPickerFrame:SetPreview(self.emoteInfo);
-end
-
-function EmojifyPickerGridButtonMixin:OnLeave()
-    self.Highlight:Hide();
-end
-
-EmojifyPickerHeaderMixin = {};
-
-function EmojifyPickerHeaderMixin:SetPackInfo(packName, emoteCount, colorCode, isCollapsed)
-    self.packName = packName;
-
-    local r, g, b = CreateColorFromRGBHexString(colorCode):GetRGB();
-
-    self.Text:SetText(string.format("%s (%d)", packName, emoteCount));
-    self.Text:SetTextColor(r, g, b);
-    self.Arrow:SetText(isCollapsed and "+" or "-");
-end
-
-function EmojifyPickerHeaderMixin:OnClick()
-    Picker.ToggleSection(self.packName);
-end
-
-EmojifyPickerFrameMixin = {};
-
-function EmojifyPickerFrameMixin:OnLoad()
     table.insert(UISpecialFrames, self:GetName());
 
-    local view = CreateScrollBoxListLinearView();
+    local view = CreateScrollBoxListLinearView(7, 0, 13, 13);
     view:SetElementExtentCalculator(function(dataIndex, elementData)
         if (elementData.type == "grid") then
             return 56; -- Grid row height
@@ -95,7 +35,7 @@ function EmojifyPickerFrameMixin:OnLoad()
         return 28;     -- Header height
     end);
 
-    view:SetElementInitializer("EmojifyPickerElementTemplate", function(Frame, elementData)
+    view:SetElementInitializer("EmojifyVisualPickerElementTemplate", function(Frame, elementData)
         if (elementData.type == "header") then
             self:InitializeHeader(Frame, elementData);
         elseif (elementData.type == "grid") then
@@ -106,35 +46,46 @@ function EmojifyPickerFrameMixin:OnLoad()
     ScrollUtil.InitScrollBoxListWithScrollBar(self.ScrollBox, self.ScrollBar, view);
 
     self.currentSearch = "";
+
+    C_Timer.After(1.2, function()
+        self:SetPreview(EmojiRegistry.GetRandomEmoji());
+    end);
 end
 
-function EmojifyPickerFrameMixin:OnShow()
-    PlaySound(SOUNDKIT.IG_MAINMENU_OPEN);
-
+function EmojifyVisualPickerMixin:OnShow()
     if (self.isBuilding) then
         return;
     end
+
+    PlaySound(SOUNDKIT.IG_MAINMENU_OPEN);
 
     self.isBuilding = true;
     self:RestorePosition();
     self:RebuildPicker();
     self.isBuilding = false;
-
-    self:UpdatePickerAnimations();
 end
 
-function EmojifyPickerFrameMixin:OnHide()
+function EmojifyVisualPickerMixin:OnHide()
     PlaySound(SOUNDKIT.IG_MAINMENU_CLOSE);
 
     Animation.SetVisibleAnimationsFromPicker({});
 end
 
-function EmojifyPickerFrameMixin:SavePosition()
+function EmojifyVisualPickerMixin:OnDragStart()
+    self:StartMoving();
+end
+
+function EmojifyVisualPickerMixin:OnDragStop()
+    self:StopMovingOrSizing();
+    self:SavePosition();
+end
+
+function EmojifyVisualPickerMixin:SavePosition()
     local point, _, relativePoint, x, y = self:GetPoint();
     EmojifyDB.pickerPosition = { point = point, relativePoint = relativePoint, x = x, y = y };
 end
 
-function EmojifyPickerFrameMixin:RestorePosition()
+function EmojifyVisualPickerMixin:RestorePosition()
     local pos = EmojifyDB.pickerPosition;
     if (pos) then
         self:ClearAllPoints();
@@ -142,16 +93,9 @@ function EmojifyPickerFrameMixin:RestorePosition()
     end
 end
 
-function EmojifyPickerFrameMixin:OnDragStart()
-    self:StartMoving();
-end
+function EmojifyVisualPickerMixin:OnSearchChanged(SearchBox, searchText)
+    SearchBoxTemplate_OnTextChanged(SearchBox);
 
-function EmojifyPickerFrameMixin:OnDragStop()
-    self:StopMovingOrSizing();
-    self:SavePosition();
-end
-
-function EmojifyPickerFrameMixin:OnSearchChanged(searchText)
     if (self.currentSearch == searchText) then
         return;
     end
@@ -160,23 +104,20 @@ function EmojifyPickerFrameMixin:OnSearchChanged(searchText)
     self:RebuildPicker();
 end
 
-function EmojifyPickerFrameMixin:RebuildPicker()
+function EmojifyVisualPickerMixin:RebuildPicker()
     local dataProvider = CreateDataProvider();
 
     local sections;
     if (self.currentSearch ~= "") then
-        sections = Picker.FilterBySearch(self.currentSearch);
+        sections = VisualPicker.FilterBySearch(self.currentSearch);
     else
-        sections = Picker.GetAllSections();
+        sections = VisualPicker.GetAllSections();
     end
 
     for _, section in ipairs(sections) do
         dataProvider:Insert({
             type = "header",
-            packName = section.packName,
-            emoteCount = #section.emotes,
-            colorCode = Picker.ExtractPackColor(section.packName),
-            isCollapsed = section.isCollapsed
+            section = section
         });
 
         if (not section.isCollapsed) then
@@ -198,9 +139,10 @@ function EmojifyPickerFrameMixin:RebuildPicker()
     end
 
     self.ScrollBox:SetDataProvider(dataProvider, ScrollBoxConstants.RetainScrollPosition);
+    self:UpdateAnimations();
 end
 
-function EmojifyPickerFrameMixin:InitializeHeader(Frame, data)
+function EmojifyVisualPickerMixin:InitializeHeader(Frame, data)
     Frame:SetHeight(28);
 
     if (Frame.Grid) then
@@ -210,16 +152,28 @@ function EmojifyPickerFrameMixin:InitializeHeader(Frame, data)
     end
 
     if (not Frame.Header) then
-        Frame.Header = CreateFrame("Button", nil, Frame, "EmojifyPickerHeaderTemplate");
+        Frame.Header = CreateFrame("Button", nil, Frame, "EmojifyVisualPickerPackHeaderButtonTemplate");
         Frame.Header:SetPoint("TOPLEFT");
         Frame.Header:SetPoint("TOPRIGHT");
     end
 
-    Frame.Header:SetPackInfo(data.packName, data.emoteCount, data.colorCode, data.isCollapsed);
+    local section = data.section;
+    local packName = section.packName;
+    local isCollapsed = section.isCollapsed;
+    local colorCode = VisualPicker.ExtractPackColorCode(packName);
+    local normalFontColor = CreateColorFromRGBHexString(colorCode);
+
+    Frame.Header.normalFontColor = normalFontColor;
+    Frame.Header.isCollapsed = isCollapsed;
+    Frame.Header.packName = packName;
+
+    Frame.Header.ButtonText:SetFormattedText("%s (%d)", packName, #section.emotes);
+    Frame.Header.ButtonText:SetTextColor(normalFontColor:GetRGB());
+    Frame.Header:UpdateCollapsedState(packName == EMOJIFY_SEARCH_RESULTS, isCollapsed);
     Frame.Header:Show();
 end
 
-function EmojifyPickerFrameMixin:InitializeGrid(Frame, data)
+function EmojifyVisualPickerMixin:InitializeGrid(Frame, data)
     Frame:SetHeight(56);
 
     if (Frame.Header) then
@@ -230,8 +184,8 @@ function EmojifyPickerFrameMixin:InitializeGrid(Frame, data)
         Frame.Grid = {};
 
         for i = 1, GRID_COLUMNS do
-            local Button = CreateFrame("Button", nil, Frame, "EmojifyPickerGridButtonTemplate");
-            Button:SetPoint("TOPLEFT", 4 + (i - 1) * 52, -4);
+            local Button = CreateFrame("Button", nil, Frame, "EmojifyVisualPickerGridButtonTemplate");
+            Button:SetPoint("TOPLEFT", 5 + (i - 1) * 52, 0);
             Frame.Grid[i] = Button;
         end
     end
@@ -249,29 +203,7 @@ function EmojifyPickerFrameMixin:InitializeGrid(Frame, data)
     end
 end
 
-function EmojifyPickerFrameMixin:UpdateAnimations()
-    if (not self:IsShown()) then
-        return;
-    end
-
-    self.ScrollBox:ForEachFrame(function(Frame)
-        if (Frame.Grid) then
-            for _, Button in ipairs(Frame.Grid) do
-                if (Button:IsShown() and Button.emoteInfo and Button.emoteInfo.isAnimated) then
-                    Button:UpdateAnimation();
-                end
-            end
-        end
-    end);
-
-    if (self.currentPreview and self.currentPreview.isAnimated) then
-        self:UpdatePreviewAnimation();
-    end
-
-    self:UpdatePickerAnimations();
-end
-
-function EmojifyPickerFrameMixin:UpdatePickerAnimations()
+function EmojifyVisualPickerMixin:UpdateAnimations()
     if (not self:IsShown()) then
         return;
     end
@@ -283,6 +215,7 @@ function EmojifyPickerFrameMixin:UpdatePickerAnimations()
             for _, Button in ipairs(Frame.Grid) do
                 if (Button:IsShown() and Button.emoteInfo and Button.emoteInfo.isAnimated) then
                     found[Button.emoteInfo.code] = true;
+                    Button:UpdateAnimation();
                 end
             end
         end
@@ -290,12 +223,13 @@ function EmojifyPickerFrameMixin:UpdatePickerAnimations()
 
     if (self.currentPreview and self.currentPreview.isAnimated) then
         found[self.currentPreview.code] = true;
+        self:UpdatePreviewAnimation();
     end
 
     Animation.SetVisibleAnimationsFromPicker(found);
 end
 
-function EmojifyPickerFrameMixin:SetPreview(emoteInfo)
+function EmojifyVisualPickerMixin:SetPreview(emoteInfo)
     self.currentPreview = emoteInfo;
 
     local data = emoteInfo.data;
@@ -319,10 +253,10 @@ function EmojifyPickerFrameMixin:SetPreview(emoteInfo)
         );
     end
 
-    self:UpdatePickerAnimations();
+    self:UpdateAnimations();
 end
 
-function EmojifyPickerFrameMixin:UpdatePreviewAnimation()
+function EmojifyVisualPickerMixin:UpdatePreviewAnimation()
     local data = self.currentPreview.data;
     local frameWidth = data.width;
     local frameHeight = data.height;
