@@ -5,7 +5,7 @@ Modern emojis for World of Warcraft
 Transform your WoW chat with static and animated emojis, smart autocomplete, 
 and hundreds of emojis. Just type `:` and start expressing yourself!
 
-Originally inspired by [Arukori](https://twitch.tv/arukori)'s idea to bring VTuber emotes into World of Warcraft!
+Special thanks to [Arukori](https://twitch.tv/arukori) for her contributions to logo, branding, and creative direction! You made this special! 💜
 
 ![Emojify Demo](screenshot.gif)
 
