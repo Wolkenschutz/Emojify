@@ -43,7 +43,7 @@ function ChatBubbles.OnUpdate()
                                 Region:SetText(newMessage);
 
                                 -- Adjust width for emoji-only bubbles
-                                if (string.match(newMessage, "^%s*|TInterface\\AddOns\\Emojify_.-\\.-|t%s*$")) then
+                                if (string.match(newMessage, "^%s*|Hemojify:.-|h|TInterface\\AddOns\\Emojify_.-\\.-|t|h%s*$")) then
                                     local displayWidth = string.match(newMessage, "|T.-:" .. DEFAULT_HEIGHT .. ":(%d+):");
                                     local width = (tonumber(displayWidth) or 0) + 40;
                                     Region:SetWidth(width);

@@ -10,6 +10,9 @@ local ChatFrameHooks = ns.ChatFrameHooks;
 
 local Animation = ns.Animation;
 local Autocomplete = ns.Autocomplete;
+local EmojiRegistry = ns.EmojiRegistry;
+
+local emojiFontStringHovered;
 
 local function IterateVisibleChatFontStrings(Frame)
     if (not Frame or not Frame:IsShown()) then
@@ -64,19 +67,21 @@ local function UpdateVisibleEmojis()
         for FontString in IterateVisibleChatFontStrings(ChatFrame) do
             local message = FontString:GetText() or "";
 
-            if (message ~= "" and string.find(message, "Interface\\AddOns\\Emojify_[^\\]+\\animated_emojis")) then
-                local newMessage = Animation.UpdateAnimatedTextures(message);
+            if (emojiFontStringHovered ~= FontString.messageInfo) then
+                if (message ~= "" and string.find(message, "Interface\\AddOns\\Emojify_[^\\]+\\animated_emojis")) then
+                    local newMessage = Animation.UpdateAnimatedTextures(message);
 
-                if (newMessage ~= message) then
-                    if (FontString.messageInfo) then
-                        FontString.messageInfo.message = newMessage;
+                    if (newMessage ~= message) then
+                        if (FontString.messageInfo) then
+                            FontString.messageInfo.message = newMessage;
+                        end
+
+                        FontString:SetText(newMessage);
                     end
 
-                    FontString:SetText(newMessage);
-                end
-
-                for code in string.gmatch(message, "Interface\\AddOns\\Emojify_[^\\]+\\animated_emojis\\([^:]+)") do
-                    foundAnimations[code] = true;
+                    for code in string.gmatch(message, "Interface\\AddOns\\Emojify_[^\\]+\\animated_emojis\\([^:]+)") do
+                        foundAnimations[code] = true;
+                    end
                 end
             end
         end
@@ -90,6 +95,28 @@ local function HookChatFrame(frameName)
 
     if (ChatFrame and not ChatFrame.emojifyHooked) then
         ChatFrame.emojifyHooked = true;
+
+        ChatFrame:SetHyperlinksEnabled(true);
+        ChatFrame:HookScript("OnHyperlinkEnter", function(self, link, _, FontString)
+            local linkType, emojiCode = string.match(link, "^(%w+):(.+)$");
+
+            if (linkType) then
+                emojiFontStringHovered = FontString.messageInfo;
+            end
+
+            if (linkType == "emojify" and emojiCode) then
+                local pack = EmojiRegistry.GetPackFromCode(emojiCode);
+                GameTooltip:SetOwner(self, "ANCHOR_CURSOR");
+                GameTooltip:SetText(emojiCode, 1, 1, 1);
+                GameTooltip:AddLine(pack.packName, pack.color:GetRGB());
+                GameTooltip:Show();
+            end
+        end);
+        ChatFrame:HookScript("OnHyperlinkLeave", function()
+            emojiFontStringHovered = nil;
+            GameTooltip:Hide();
+            UpdateVisibleEmojis();
+        end);
 
         local ScrollBar = ChatFrame.ScrollBar;
         if (ScrollBar) then

@@ -44,6 +44,7 @@ function EmojifyPackMixin:AddEmoji(code, widthOrSize, height)
     height = height or widthOrSize;
 
     local data = {
+        pack = self,
         code = code,
         width = width,
         height = height,
@@ -65,6 +66,7 @@ function EmojifyPackMixin:AddAnimatedEmoji(code, frames, widthOrSize, height)
     height = height or widthOrSize;
 
     local data = {
+        pack = self,
         code = code,
         frames = frames,
         width = width,
@@ -103,12 +105,20 @@ function Emojify:RegisterPack(packName)
     local packPath = "Interface\\AddOns\\" .. packName;
     local version = C_AddOns.GetAddOnMetadata(packName, "Version") or UNKNOWN;
     local description = C_AddOns.GetAddOnMetadata(packName, "Notes") or UNKNOWN;
+    local title = C_AddOns.GetAddOnMetadata(packName, "Title") or UNKNOWN;
 
     local pack = CreateFromMixins(EmojifyPackMixin);
     pack.packName = cleanPackName;
     pack.packPath = packPath;
     pack.version = version;
     pack.description = description;
+
+    local colorCode = string.match(title, "|cff(%x%x%x%x%x%x)");
+    if (colorCode) then
+        pack.color = CreateColorFromRGBHexString(colorCode);
+    else
+        pack.color = CreateColor(0.8, 0.8, 0.8);
+    end
 
     packs[cleanPackName] = pack;
 
@@ -164,4 +174,14 @@ function EmojiRegistry.GetRandomEmoji()
         data = emojis[emojiInfo.code],
         isAnimated = false
     };
+end
+
+function EmojiRegistry.GetPackFromCode(code)
+    if (emojis[code]) then
+        return emojis[code].pack;
+    end
+
+    if (animatedEmojis[code]) then
+        return animatedEmojis[code].pack;
+    end
 end

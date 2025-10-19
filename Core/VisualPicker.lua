@@ -111,13 +111,14 @@ end
 local function BuildAllSections()
     local sections = {};
 
-    for packName in pairs(ns.Packs) do
+    for packName, pack in pairs(ns.Packs) do
         local packEmotes = BuildPackEmotes(packName);
         if (#packEmotes > 0) then
             table.insert(sections, {
                 packName = packName,
                 emotes = packEmotes,
-                isCollapsed = IsPackCollapsed(packName)
+                isCollapsed = IsPackCollapsed(packName),
+                color = pack.color
             });
         end
     end
@@ -131,7 +132,8 @@ local function BuildAllSections()
         table.insert(sections, 1, {
             packName = EMOJIFY_FREQUENTLY_USED,
             emotes = frequent,
-            isCollapsed = IsPackCollapsed(EMOJIFY_FREQUENTLY_USED)
+            isCollapsed = IsPackCollapsed(EMOJIFY_FREQUENTLY_USED),
+            color = CreateColor(0.8, 0.8, 0.8)
         });
     end
 
@@ -205,9 +207,7 @@ function VisualPicker.ExtractPackColorCode(packName)
         return "cccccc";
     end
 
-    local title = C_AddOns.GetAddOnMetadata("Emojify_" .. packName, "Title") or "";
-    local colorCode = string.match(title, "|cff(%x%x%x%x%x%x)");
-    return colorCode or "cccccc";
+    return pack.colorCode;
 end
 
 function VisualPicker.IncrementUsage(code)

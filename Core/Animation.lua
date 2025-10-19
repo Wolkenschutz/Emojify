@@ -124,8 +124,8 @@ function Animation.ProcessEmojiText(message)
                 newMessage,
                 "%f[%w_]" .. escapedCode .. "%f[^%w_]",
                 string.format(
-                    "|T%s:%d:%d:0:0:%d:%d:%d:%d:0:%d|t",
-                    data.texture, displayHeight, displayWidth,
+                    "|Hemojify:%s|h|T%s:%d:%d:0:0:%d:%d:%d:%d:0:%d|t|h",
+                    code, data.texture, displayHeight, displayWidth,
                     data.textureWidth, data.textureHeight,
                     left, right, data.height
                 )
