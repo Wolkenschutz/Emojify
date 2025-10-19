@@ -96,13 +96,15 @@ end
 
 function Animation.ProcessEmojiText(message)
     local newMessage = message;
+    local lowerMessage = string.lower(message);
     local hasAnimated = false;
 
     for _, emojiInfo in ipairs(allEmojiCodes) do
         local code = emojiInfo.code;
+        local lowerCode = string.lower(code);
         local isAnimated = emojiInfo.isAnimated;
 
-        if (string.find(newMessage, code)) then
+        if (string.find(lowerMessage, lowerCode)) then
             local data = isAnimated and animatedEmojis[code] or emojis[code];
             local frameWidth = data.width;
             local frameHeight = data.height;
@@ -119,10 +121,10 @@ function Animation.ProcessEmojiText(message)
                 right = frameWidth;
             end
 
-            local escapedCode = ns.EscapePattern(code);
+            local caseInsensitivePattern = ns.MakeCaseInsensitivePattern(lowerCode);
             newMessage = string.gsub(
                 newMessage,
-                "%f[%w_]" .. escapedCode .. "%f[^%w_]",
+                "%f[%w_]" .. caseInsensitivePattern .. "%f[^%w_]",
                 string.format(
                     "|Hemojify:%s|h|T%s:%d:%d:0:0:%d:%d:%d:%d:0:%d|t|h",
                     code, data.texture, displayHeight, displayWidth,

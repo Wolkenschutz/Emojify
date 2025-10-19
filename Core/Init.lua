@@ -27,3 +27,10 @@ ns.Constants.DEFAULT_FRAME_DELAY = 40;
 function ns.EscapePattern(str)
 	return (string.gsub(str, "([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1"));
 end
+
+function ns.MakeCaseInsensitivePattern(str)
+	local escaped = ns.EscapePattern(str);
+	return escaped:gsub("%a", function(c)
+		return "[" .. string.upper(c) .. string.lower(c) .. "]";
+	end);
+end
