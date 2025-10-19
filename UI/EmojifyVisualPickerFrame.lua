@@ -160,15 +160,14 @@ function EmojifyVisualPickerMixin:InitializeHeader(Frame, data)
     local section = data.section;
     local packName = section.packName;
     local isCollapsed = section.isCollapsed;
-    local colorCode = VisualPicker.ExtractPackColorCode(packName);
-    local normalFontColor = CreateColorFromRGBHexString(colorCode);
+    local color = section.color;
 
-    Frame.Header.normalFontColor = normalFontColor;
+    Frame.Header.normalFontColor = color;
     Frame.Header.isCollapsed = isCollapsed;
     Frame.Header.packName = packName;
 
     Frame.Header.ButtonText:SetFormattedText("%s (%d)", packName, #section.emotes);
-    Frame.Header.ButtonText:SetTextColor(normalFontColor:GetRGB());
+    Frame.Header.ButtonText:SetTextColor(color:GetRGB());
     Frame.Header:UpdateCollapsedState(packName == EMOJIFY_SEARCH_RESULTS, isCollapsed);
     Frame.Header:Show();
 end
