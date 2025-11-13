@@ -90,6 +90,7 @@ pack:AddEmoji("aruBuffnir", 64);
 pack:AddEmoji("aruF", 64);
 pack:AddEmoji("aruPing", 64);
 pack:AddEmoji("aruWaiting", 64);
+pack:AddEmoji("aruDead", 64);
 pack:AddAnimatedEmoji("aruBeam", 48, 64)
     :SetDefaultDelay(40);
 
@@ -339,4 +340,7 @@ pack:AddAnimatedEmoji("TwitchBurn", 59, 64)
 
 pack:AddAnimatedEmoji("WoWBurn", 59, 64)
     :SetDefaultDelay(40);
+
+pack:AddAnimatedEmoji("aruFap", 2, 64)
+    :SetDefaultDelay(100);
 
