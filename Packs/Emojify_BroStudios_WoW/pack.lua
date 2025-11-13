@@ -1,0 +1,34 @@
+local addonName = ...;
+
+local pack = Emojify:RegisterPack(addonName);
+
+pack:AddEmoji("brostu1Angel", 64);
+pack:AddEmoji("brostu1Angry", 64);
+pack:AddEmoji("brostu1Attention", 64);
+pack:AddEmoji("brostu1Blush", 64);
+pack:AddEmoji("brostu1Break", 64);
+pack:AddEmoji("brostu1Cry", 64);
+pack:AddEmoji("brostu1Dead", 64);
+pack:AddEmoji("brostu1Entertain", 64);
+pack:AddEmoji("brostu1Fear", 64);
+pack:AddEmoji("brostu1Flip", 64);
+pack:AddEmoji("brostu1Grey", 64);
+pack:AddEmoji("brostu1Hide", 64);
+pack:AddEmoji("brostu1Knast", 64);
+pack:AddEmoji("brostu1Knife", 64);
+pack:AddEmoji("brostu1Lick", 64);
+pack:AddEmoji("brostu1Loading", 64);
+pack:AddEmoji("brostu1Love", 64);
+pack:AddEmoji("brostu1Money", 64);
+pack:AddEmoji("brostu1Noice", 64);
+pack:AddEmoji("brostu1Question", 64);
+pack:AddEmoji("brostu1Redblue", 64);
+pack:AddEmoji("brostu1Rose", 64);
+pack:AddEmoji("brostu1Sabber", 64);
+pack:AddEmoji("brostu1Sleep", 64);
+pack:AddEmoji("brostu1Smile", 64);
+pack:AddEmoji("brostu1Tatch", 64);
+pack:AddEmoji("brostu1Wat", 64);
+pack:AddEmoji("brostu1Wink", 64);
+pack:AddEmoji("brostu1Hmpf2", 64);
+pack:AddEmoji("brostu1Sleep2", 64);

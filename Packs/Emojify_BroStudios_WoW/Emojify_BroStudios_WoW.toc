@@ -1,0 +1,11 @@
+## Interface: 110205
+
+## Title: |cff776c52Twitch @BroStudios_WoW|r
+## Notes: Twitch Emotes of BroStudios_WoW
+## Version: 1.0
+## IconTexture: Interface\AddOns\Emojify_BroStudios_WoW\icon
+
+## Dependencies: Emojify
+## Group: Emojify
+
+pack.lua
