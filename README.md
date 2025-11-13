@@ -52,6 +52,7 @@ Special thanks to [Arukori](https://twitch.tv/arukori) for her contributions to 
 - **Twitch: [Murtambil](https://twitch.tv/murtambil)** - Full emote collection
 - **Twitch: [Schwowi](https://twitch.tv/schwowi)** - Full emote collection
 - **Twitch: [xJeevy](https://twitch.tv/xjeevy)** - Full emote collection
+- **Twitch: [Artemirs_](https://twitch.tv/artemirs_)** - Full emote collection
 - **BetterTTV** - Trending community emotes
 - **Dracthyr** - Official World of Warcraft Dracthyr emotes
 

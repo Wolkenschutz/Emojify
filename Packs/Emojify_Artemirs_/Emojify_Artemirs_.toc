@@ -1,0 +1,11 @@
+## Interface: 110205
+
+## Title: |cfffd62eaTwitch @Artemirs_|r
+## Notes: Twitch Emotes of Artemirs_
+## Version: 1.0
+## IconTexture: Interface\AddOns\Emojify_Artemirs_\icon
+
+## Dependencies: Emojify
+## Group: Emojify
+
+pack.lua
