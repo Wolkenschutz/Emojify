@@ -160,7 +160,7 @@ function EmojifyVisualPickerMixin:InitializeHeader(Frame, data)
     local section = data.section;
     local packName = section.packName;
     local isCollapsed = section.isCollapsed;
-    local color = section.color;
+    local color = section.color or CreateColor(0.8, 0.8, 0.8);
 
     Frame.Header.normalFontColor = color;
     Frame.Header.isCollapsed = isCollapsed;
