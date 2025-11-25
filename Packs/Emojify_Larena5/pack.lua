@@ -6,7 +6,6 @@ pack:AddEmoji("larena1Angy", 64);
 pack:AddEmoji("larena1Army", 64);
 pack:AddEmoji("larena1Backen", 64);
 pack:AddEmoji("larena1Cry", 64);
-pack:AddEmoji("larena1Drink", 64);
 pack:AddEmoji("larena1Family", 64);
 pack:AddEmoji("larena1Hammer", 64);
 pack:AddEmoji("larena1Hi", 64);
@@ -66,11 +65,20 @@ pack:AddAnimatedEmoji("larena1Ahh", 36, 64)
     :SetDefaultDelay(100)
     :SetFrameDelay(14, 200);
 
+pack:AddAnimatedEmoji("larena1Angry", 40, 64)
+    :SetDefaultDelay(30);
+
 pack:AddAnimatedEmoji("larena1Auge", 19, 64)
     :SetDefaultDelay(100);
 
+pack:AddAnimatedEmoji("larena1Bell", 40, 64)
+    :SetDefaultDelay(30);
+
 pack:AddAnimatedEmoji("larena1Bl", 37, 64)
     :SetDefaultDelay(100);
+
+pack:AddAnimatedEmoji("larena1Boop", 40, 64)
+    :SetDefaultDelay(30);
 
 pack:AddAnimatedEmoji("larena1Dance", 40, 64)
     :SetDefaultDelay(50);
@@ -116,6 +124,18 @@ pack:AddAnimatedEmoji("larena1Party", 60, 64)
 
 pack:AddAnimatedEmoji("larena1Pat", 40, 64)
     :SetDefaultDelay(30);
+
+pack:AddAnimatedEmoji("larena1Popcorn", 40, 64)
+    :SetDefaultDelay(30);
+
+pack:AddAnimatedEmoji("larena1Sip", 40, 64)
+    :SetDefaultDelay(30);
+
+pack:AddAnimatedEmoji("larena1Squeesh", 40, 64)
+    :SetDefaultDelay(30);
+
+pack:AddAnimatedEmoji("larena1Uno", 40, 64)
+    :SetDefaultDelay(33);
 
 pack:AddAnimatedEmoji("larena1Wiggle", 34, 64)
     :SetDefaultDelay(100);
