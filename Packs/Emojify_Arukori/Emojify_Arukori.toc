@@ -1,4 +1,4 @@
-## Interface: 110205
+## Interface: 110207
 
 ## Title: |cff684DC7Twitch @Arukori|r
 ## Notes: Twitch Emotes of Arukori

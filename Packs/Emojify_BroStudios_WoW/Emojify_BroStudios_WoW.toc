@@ -1,4 +1,4 @@
-## Interface: 110205
+## Interface: 110207
 
 ## Title: |cff776c52Twitch @BroStudios_WoW|r
 ## Notes: Twitch Emotes of BroStudios_WoW

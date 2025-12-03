@@ -1,4 +1,4 @@
-## Interface: 110205
+## Interface: 110207
 ## Title: |cffffffffEmojify|r
 ## Notes: Express yourself with emojis and bring your chat to life!
 ## Notes-deDE: Drücke dich mit Emojis aus und erwecke deinen Chat zum Leben!
