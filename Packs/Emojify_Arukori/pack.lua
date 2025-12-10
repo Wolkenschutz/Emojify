@@ -171,15 +171,8 @@ pack:AddAnimatedEmoji("aruHamsti", 10, 64)
 pack:AddAnimatedEmoji("aruHeadbang", 20, 64)
     :SetDefaultDelay(40);
 
-pack:AddAnimatedEmoji("aruHewo", 13, 64)
-    :SetDefaultDelay(60)
-    :SetFrameDelay(1, 30)
-    :SetFrameDelay(3, 30)
-    :SetFrameDelay(5, 30)
-    :SetFrameDelay(6, 100)
-    :SetFrameDelay(8, 30)
-    :SetFrameDelay(10, 30)
-    :SetFrameDelay(12, 30);
+pack:AddAnimatedEmoji("aruHewo", 16, 64)
+    :SetDefaultDelay(50);
 
 pack:AddAnimatedEmoji("aruHUH", 10, 64)
     :SetDefaultDelay(140);
@@ -219,6 +212,9 @@ pack:AddAnimatedEmoji("aruNom", 60, 64)
 
 pack:AddAnimatedEmoji("aruNote", 60, 64)
     :SetDefaultDelay(40);
+
+pack:AddAnimatedEmoji("aruPadoru", 4, 64)
+    :SetDefaultDelay(180);
 
 pack:AddAnimatedEmoji("aruPanic", 48, 64)
     :SetDefaultDelay(40);
@@ -310,6 +306,9 @@ pack:AddAnimatedEmoji("aruTail", 10, 64)
 
 pack:AddAnimatedEmoji("aruTap", 60, 64)
     :SetDefaultDelay(40);
+
+pack:AddAnimatedEmoji("aruTree", 10, 64)
+    :SetDefaultDelay(70);
 
 pack:AddAnimatedEmoji("aruWave", 30, 64)
     :SetDefaultDelay(30);

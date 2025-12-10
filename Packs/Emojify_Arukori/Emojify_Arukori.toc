@@ -2,7 +2,7 @@
 
 ## Title: |cff684DC7Twitch @Arukori|r
 ## Notes: Twitch Emotes of Arukori
-## Version: 1.1
+## Version: 1.2
 ## IconTexture: Interface\AddOns\Emojify_Arukori\icon
 
 ## Dependencies: Emojify
