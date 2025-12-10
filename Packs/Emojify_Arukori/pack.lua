@@ -146,9 +146,6 @@ pack:AddAnimatedEmoji("aruDinkDonk", 60, 64)
 pack:AddAnimatedEmoji("aruDJ", 27, 64)
     :SetDefaultDelay(40);
 
-pack:AddAnimatedEmoji("aruExcited", 56, 64)
-    :SetDefaultDelay(40);
-
 pack:AddAnimatedEmoji("aruFDance", 21, 64)
     :SetDefaultDelay(40);
 
@@ -218,9 +215,6 @@ pack:AddAnimatedEmoji("aruPadoru", 4, 64)
 
 pack:AddAnimatedEmoji("aruPanic", 48, 64)
     :SetDefaultDelay(40);
-
-pack:AddAnimatedEmoji("aruPedro", 60, 64)
-    :SetDefaultDelay(60);
 
 pack:AddAnimatedEmoji("aruPop", 2, 64)
     :SetDefaultDelay(170);
