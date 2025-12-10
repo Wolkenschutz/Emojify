@@ -91,6 +91,9 @@ pack:AddAnimatedEmoji("larena1Flirt", 17, 64)
     :SetFrameDelay(11, 120)
     :SetFrameDelay(14, 120);
 
+pack:AddAnimatedEmoji("larena1Gift", 43, 64)
+    :SetDefaultDelay(30);
+
 pack:AddAnimatedEmoji("larena1Love", 13, 64)
     :SetDefaultDelay(10);
 
@@ -135,7 +138,7 @@ pack:AddAnimatedEmoji("larena1Squeesh", 40, 64)
     :SetDefaultDelay(30);
 
 pack:AddAnimatedEmoji("larena1Uno", 40, 64)
-    :SetDefaultDelay(33);
+    :SetDefaultDelay(30);
 
 pack:AddAnimatedEmoji("larena1Wiggle", 34, 64)
     :SetDefaultDelay(100);
