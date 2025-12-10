@@ -2,7 +2,7 @@
 
 ## Title: |cff987BD8Twitch @xJeevy|r
 ## Notes: Twitch Emotes of xJeevy
-## Version: 1.0
+## Version: 1.1
 ## IconTexture: Interface\AddOns\Emojify_xJeevy\icon
 
 ## Dependencies: Emojify
