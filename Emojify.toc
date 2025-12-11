@@ -22,6 +22,7 @@
 
 Localization\enUS.lua
 Localization\deDE.lua
+Localization\ruRU.lua
 
 Core\Init.lua
 Core\EmojiSearch.lua

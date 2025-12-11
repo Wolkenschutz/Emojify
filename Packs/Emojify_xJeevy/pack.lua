@@ -119,7 +119,7 @@ pack:AddAnimatedEmoji("xjeevyLurk", 59, 64)
     :SetFrameDelay(58, 30);
 
 pack:AddAnimatedEmoji("xjeevyPadoru", 4, 64)
-    :SetDefaultDelay(0);
+    :SetDefaultDelay(33);
 
 pack:AddAnimatedEmoji("xjeevyPanic", 43, 64)
     :SetDefaultDelay(30);
