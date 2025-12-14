@@ -1,4 +1,4 @@
-## Interface: 110207
+## Interface: 110207, 11508
 
 ## Title: |cffc9c5c9Twitch @Murtambil|r
 ## Notes: Twitch Emotes of Murtambil

@@ -121,6 +121,8 @@ local function HookChatFrame(frameName)
         local ScrollBar = ChatFrame.ScrollBar;
         if (ScrollBar) then
             ScrollBar:RegisterCallback(ScrollBarMixin.Event.OnScroll, UpdateVisibleEmojis);
+        elseif (ChatFrame.AddOnDisplayRefreshedCallback) then
+            ChatFrame:AddOnDisplayRefreshedCallback(UpdateVisibleEmojis);
         end
 
         local Tab = _G[frameName .. "Tab"];

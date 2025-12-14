@@ -1,4 +1,4 @@
-## Interface: 110207
+## Interface: 110207, 11508
 
 ## Title: |cff58ebfeTwitch @Hexendreieck|r
 ## Notes: Twitch Emotes of Hexendreieck

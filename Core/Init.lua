@@ -34,3 +34,7 @@ function ns.MakeCaseInsensitivePattern(str)
 		return "[" .. string.upper(c) .. string.lower(c) .. "]";
 	end);
 end
+
+function ns.IsClassic()
+	return WOW_PROJECT_ID == WOW_PROJECT_CLASSIC;
+end

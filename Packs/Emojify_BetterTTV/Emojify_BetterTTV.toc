@@ -1,4 +1,4 @@
-## Interface: 110207
+## Interface: 110207, 11508
 
 ## Title: |cffDE0014BetterTTV|r
 ## Notes: BetterTTV Emotes

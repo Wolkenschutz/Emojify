@@ -25,6 +25,10 @@ function EmojifyVisualPickerMixin:OnLoad()
     self.Inset.Bg:SetAtlas("QuestLog-main-background");
     self.Inset.Bg:SetAlpha(0.8);
 
+    if (ns.IsClassic()) then
+        self.BorderFrame.Border:Hide();
+    end
+
     table.insert(UISpecialFrames, self:GetName());
 
     local view = CreateScrollBoxListLinearView(7, 0, 13, 13);

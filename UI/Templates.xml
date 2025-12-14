@@ -162,7 +162,7 @@
                         <Anchor point="CENTER"/>
                     </Anchors>
                 </Texture>
-                <MaskTexture parentKey="IconMask" atlas="item_upgrade_tooltip_fullmask" hWrapMode="CLAMPTOBLACKADDITIVE" vWrapMode="CLAMPTOBLACKADDITIVE">
+                <MaskTexture parentKey="IconMask" file="Interface\Buttons\WHITE8X8" hWrapMode="CLAMPTOBLACKADDITIVE" vWrapMode="CLAMPTOBLACKADDITIVE">
                     <Size x="40" y="40"/>
                     <Anchors>
                         <Anchor point="CENTER"/>

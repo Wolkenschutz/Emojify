@@ -11,6 +11,12 @@ EmojifyVisualPickerPackHeaderMixin = {};
 
 function EmojifyVisualPickerPackHeaderMixin:OnLoad()
     self:SetPushedTextOffset(1, -1);
+
+    if (ns.IsClassic()) then
+        self:GetNormalTexture():SetAlpha(0);
+        self:GetHighlightTexture():SetAlpha(0);
+        self.CollapseButton:SetAlpha(0);
+    end
 end
 
 function EmojifyVisualPickerPackHeaderMixin:OnClick()
