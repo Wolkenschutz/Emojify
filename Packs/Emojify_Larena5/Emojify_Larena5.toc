@@ -1,4 +1,4 @@
-## Interface: 110207, 11508
+## Interface: 120000, 11508
 
 ## Title: |cffd8562eTwitch @Larena5|r
 ## Notes: Twitch Emotes of Larena5
