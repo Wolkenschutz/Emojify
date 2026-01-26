@@ -11,6 +11,7 @@ local ChatFrameHooks = ns.ChatFrameHooks;
 local Animation = ns.Animation;
 local Autocomplete = ns.Autocomplete;
 local EmojiRegistry = ns.EmojiRegistry;
+local issecretvalue = issecretvalue or nop;
 
 local emojiFontStringHovered;
 
@@ -67,7 +68,7 @@ local function UpdateVisibleEmojis()
         for FontString in IterateVisibleChatFontStrings(ChatFrame) do
             local message = FontString:GetText() or "";
 
-            if (emojiFontStringHovered ~= FontString.messageInfo) then
+            if (not issecretvalue(message) and emojiFontStringHovered ~= FontString.messageInfo) then
                 if (message ~= "" and string.find(message, "Interface\\AddOns\\Emojify_[^\\]+\\animated_emojis")) then
                     local newMessage = Animation.UpdateAnimatedTextures(message);
 

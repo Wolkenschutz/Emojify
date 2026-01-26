@@ -10,6 +10,8 @@ local Autocomplete = ns.Autocomplete;
 local EmojiSearch = ns.EmojiSearch;
 local Constants = ns.Constants;
 
+local InChatMessagingLockdown = C_ChatInfo and C_ChatInfo.InChatMessagingLockdown or nop;
+
 local MIN_SEARCH_LENGTH = Constants.MIN_SEARCH_LENGTH;
 local DEBOUNCE_DELAY = Constants.DEBOUNCE_DELAY;
 local TRIGGER_CHAR = Constants.TRIGGER_CHAR;
@@ -65,6 +67,10 @@ local function PerformSearch(word)
 end
 
 function Autocomplete.OnEditBoxTextChanged(EditBox)
+    if (InChatMessagingLockdown()) then
+        return;
+    end
+
     if (searchTimer) then
         searchTimer:Cancel();
     end
@@ -105,6 +111,11 @@ function Autocomplete.OnEditBoxEscapePressed()
 end
 
 function Autocomplete.OnEditBoxKeyDown(key)
+    if (InChatMessagingLockdown()) then
+        EmojifyAutocompleteFrame:Hide();
+        return;
+    end
+
     if (EmojifyAutocompleteFrame:IsShown() and (key == "ENTER" or key == "RETURN")) then
         EmojifyAutocompleteFrame:ConfirmSelection();
     end
