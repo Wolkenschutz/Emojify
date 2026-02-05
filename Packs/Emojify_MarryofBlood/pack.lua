@@ -3,6 +3,7 @@ local addonName = ...;
 local pack = Emojify:RegisterPack(addonName);
 
 pack:AddEmoji("marryoAww", 64);
+pack:AddEmoji("marryoFaffe", 64);
 pack:AddEmoji("marryoFaxolotllove", 64);
 pack:AddEmoji("marryoFBite", 64);
 pack:AddEmoji("marryoFblume", 64);
@@ -15,8 +16,8 @@ pack:AddEmoji("marryoFCatHug", 64);
 pack:AddEmoji("marryoFcatmiddle", 64);
 pack:AddEmoji("marryoFCatsad", 64);
 pack:AddEmoji("marryoFcattail", 64);
-pack:AddEmoji("marryoFcheeky", 64);
 pack:AddEmoji("marryoFclown", 64);
+pack:AddEmoji("marryoFcomfy", 64);
 pack:AddEmoji("marryoFconfused", 64);
 pack:AddEmoji("marryoFcopium", 64);
 pack:AddEmoji("marryoFcry", 64);
@@ -24,14 +25,15 @@ pack:AddEmoji("marryoFdead", 64);
 pack:AddEmoji("marryoFdepressio", 64);
 pack:AddEmoji("marryoFderpi", 64);
 pack:AddEmoji("marryoFEvillaugh", 64);
+pack:AddEmoji("marryoFexcuseme", 64);
 pack:AddEmoji("marryoFfacepalm", 64);
 pack:AddEmoji("marryoFhappy", 64);
+pack:AddEmoji("marryoFhe", 64);
 pack:AddEmoji("marryoFhehe", 64);
 pack:AddEmoji("marryoFHehecat", 64);
 pack:AddEmoji("marryoFHolydead", 64);
 pack:AddEmoji("marryoFhot", 64);
 pack:AddEmoji("marryoFhug", 64);
-pack:AddEmoji("marryoFhuh", 64);
 pack:AddEmoji("marryoFhybrid", 64);
 pack:AddEmoji("marryoFhype", 64);
 pack:AddEmoji("marryoFInlove", 64);
@@ -47,10 +49,11 @@ pack:AddEmoji("marryoFohno", 64);
 pack:AddEmoji("marryoFouzo", 64);
 pack:AddEmoji("marryoFpew", 64);
 pack:AddEmoji("marryoFplease", 64);
+pack:AddEmoji("marryoFquestion", 64);
 pack:AddEmoji("marryoFrich", 64);
 pack:AddEmoji("marryoFsad", 64);
 pack:AddEmoji("marryoFsadcat", 64);
-pack:AddEmoji("marryoFsalt", 64);
+pack:AddEmoji("marryoFsadge", 64);
 pack:AddEmoji("marryoFshiny", 64);
 pack:AddEmoji("marryoFShy", 64);
 pack:AddEmoji("marryoFShycat", 64);
@@ -59,12 +62,9 @@ pack:AddEmoji("marryoFslay", 64);
 pack:AddEmoji("marryoFsmart", 64);
 pack:AddEmoji("marryoFSmirk", 64);
 pack:AddEmoji("marryoFSnapped", 64);
-pack:AddEmoji("marryoFstare", 64);
 pack:AddEmoji("marryoFSweat", 64);
 pack:AddEmoji("marryoFtea", 64);
-pack:AddEmoji("marryoFtechnic", 64);
 pack:AddEmoji("marryoFthighs", 64);
-pack:AddEmoji("marryoFunoreverse", 64);
 pack:AddEmoji("marryoFwheeze", 64);
 pack:AddEmoji("marryoF10von10", 64);
 pack:AddEmoji("marryoFo7", 64);
@@ -74,9 +74,6 @@ pack:AddAnimatedEmoji("marryoFblinkersxliara", 14, 64)
 pack:AddAnimatedEmoji("marryoFbonk", 23, 64)
     :SetDefaultDelay(40);
 
-pack:AddAnimatedEmoji("marryoFCashnikel", 10, 64)
-    :SetDefaultDelay(40);
-
 pack:AddAnimatedEmoji("marryoFcheer", 28, 64)
     :SetDefaultDelay(40);
 
@@ -84,9 +81,6 @@ pack:AddAnimatedEmoji("marryoFciao", 45, 64)
     :SetDefaultDelay(40);
 
 pack:AddAnimatedEmoji("marryoFclap", 24, 64)
-    :SetDefaultDelay(40);
-
-pack:AddAnimatedEmoji("marryoFCozy", 38, 64)
     :SetDefaultDelay(40);
 
 pack:AddAnimatedEmoji("marryoFdance", 57, 64)
@@ -110,11 +104,21 @@ pack:AddAnimatedEmoji("marryoFEyebrows", 57, 64)
 pack:AddAnimatedEmoji("marryoFfeuerzeug", 48, 64)
     :SetDefaultDelay(40);
 
+pack:AddAnimatedEmoji("marryoFgamba", 25, 64)
+    :SetDefaultDelay(60)
+    :SetFrameDelay(4, 30)
+    :SetFrameDelay(12, 30)
+    :SetFrameDelay(20, 30)
+    :SetFrameDelay(24, 30);
+
 pack:AddAnimatedEmoji("marryoFgigaschock", 9, 64)
     :SetDefaultDelay(60);
 
 pack:AddAnimatedEmoji("marryoFhairflip", 55, 64)
     :SetDefaultDelay(40);
+
+pack:AddAnimatedEmoji("marryoFhalloffame", 20, 64)
+    :SetDefaultDelay(50);
 
 pack:AddAnimatedEmoji("marryoFheadslam", 24, 64)
     :SetDefaultDelay(40);
@@ -141,22 +145,22 @@ pack:AddAnimatedEmoji("marryoFkisses", 27, 64)
 pack:AddAnimatedEmoji("marryoFknife", 26, 64)
     :SetDefaultDelay(40);
 
+pack:AddAnimatedEmoji("marryoFlizard", 24, 64)
+    :SetDefaultDelay(60)
+    :SetFrameDelay(0, 130)
+    :SetFrameDelay(3, 30)
+    :SetFrameDelay(11, 30)
+    :SetFrameDelay(19, 160)
+    :SetFrameDelay(20, 200)
+    :SetFrameDelay(21, 160)
+    :SetFrameDelay(22, 200)
+    :SetFrameDelay(23, 30);
+
 pack:AddAnimatedEmoji("marryoFloading", 51, 64)
     :SetDefaultDelay(40);
 
 pack:AddAnimatedEmoji("marryoFlurk", 55, 64)
     :SetDefaultDelay(40);
-
-pack:AddAnimatedEmoji("marryoFmodcheck", 12, 64)
-    :SetDefaultDelay(160)
-    :SetFrameDelay(1, 100)
-    :SetFrameDelay(2, 130)
-    :SetFrameDelay(4, 100)
-    :SetFrameDelay(5, 130)
-    :SetFrameDelay(7, 100)
-    :SetFrameDelay(8, 130)
-    :SetFrameDelay(10, 100)
-    :SetFrameDelay(11, 130);
 
 pack:AddAnimatedEmoji("marryoFNein", 8, 64)
     :SetDefaultDelay(40);
@@ -178,8 +182,12 @@ pack:AddAnimatedEmoji("marryoFokciao", 27, 64)
 pack:AddAnimatedEmoji("marryoFpanic", 33, 64)
     :SetDefaultDelay(100);
 
-pack:AddAnimatedEmoji("marryoFparty", 30, 64)
-    :SetDefaultDelay(40);
+pack:AddAnimatedEmoji("marryoFparty", 25, 64)
+    :SetDefaultDelay(60)
+    :SetFrameDelay(4, 30)
+    :SetFrameDelay(12, 30)
+    :SetFrameDelay(20, 30)
+    :SetFrameDelay(24, 30);
 
 pack:AddAnimatedEmoji("marryoFpatpat", 62, 64)
     :SetDefaultDelay(40);
@@ -208,11 +216,16 @@ pack:AddAnimatedEmoji("marryoFschere", 4, 64)
 pack:AddAnimatedEmoji("marryoFSchock", 35, 64)
     :SetDefaultDelay(40);
 
-pack:AddAnimatedEmoji("marryoFshine", 20, 64)
-    :SetDefaultDelay(130);
-
 pack:AddAnimatedEmoji("marryoFshow", 25, 64)
     :SetDefaultDelay(80);
+
+pack:AddAnimatedEmoji("marryoFshrug", 16, 64)
+    :SetDefaultDelay(60)
+    :SetFrameDelay(15, 30);
+
+pack:AddAnimatedEmoji("marryoFsinging", 23, 64)
+    :SetDefaultDelay(50)
+    :SetFrameDelay(22, 30);
 
 pack:AddAnimatedEmoji("marryoFspin", 12, 64)
     :SetDefaultDelay(40);
@@ -229,9 +242,6 @@ pack:AddAnimatedEmoji("marryoFthisisfine", 20, 64)
 
 pack:AddAnimatedEmoji("marryoFtipitipis", 2, 64)
     :SetDefaultDelay(80);
-
-pack:AddAnimatedEmoji("marryoFtongue", 13, 64)
-    :SetDefaultDelay(100);
 
 pack:AddAnimatedEmoji("marryoFtwerk", 8, 64)
     :SetDefaultDelay(170);

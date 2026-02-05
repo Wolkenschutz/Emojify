@@ -2,7 +2,7 @@
 
 ## Title: |cffF13C43Twitch @MarryofBlood|r
 ## Notes: Twitch Emotes of MarryofBlood
-## Version: 1.1
+## Version: 1.2
 ## IconTexture: Interface\AddOns\Emojify_MarryofBlood\icon
 
 ## Dependencies: Emojify
