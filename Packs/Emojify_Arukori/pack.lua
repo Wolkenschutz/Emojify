@@ -128,6 +128,9 @@ pack:AddAnimatedEmoji("aruChomp", 5, 64)
 pack:AddAnimatedEmoji("aruClap", 4, 64)
     :SetDefaultDelay(40);
 
+pack:AddAnimatedEmoji("aruClean", 15, 64)
+    :SetDefaultDelay(20);
+
 pack:AddAnimatedEmoji("aruCola", 30, 64)
     :SetDefaultDelay(50);
 
@@ -179,6 +182,9 @@ pack:AddAnimatedEmoji("aruHype", 60, 64)
 
 pack:AddAnimatedEmoji("aruJump", 30, 64)
     :SetDefaultDelay(20);
+
+pack:AddAnimatedEmoji("aruKiss", 49, 64)
+    :SetDefaultDelay(30);
 
 pack:AddAnimatedEmoji("aruLeave", 30, 64)
     :SetDefaultDelay(40);
