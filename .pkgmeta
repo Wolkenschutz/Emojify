@@ -12,6 +12,7 @@ move-folders:
     Emojify/Packs/Emojify_Murtambil: Emojify_Murtambil
     Emojify/Packs/Emojify_Schwowi: Emojify_Schwowi
     Emojify/Packs/Emojify_xJeevy: Emojify_xJeevy
+    Emojify/Packs/Emojify_YusakiKirin: Emojify_YusakiKirin
 
 ignore:
   - .gitignore

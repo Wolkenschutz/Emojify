@@ -1,0 +1,11 @@
+## Interface: 120000, 11508
+
+## Title: |cfff296abTwitch @YusakiKirin|r
+## Notes: Twitch Emotes of YusakiKirin
+## Version: 1.0
+## IconTexture: Interface\AddOns\Emojify_YusakiKirin\icon
+
+## Dependencies: Emojify
+## Group: Emojify
+
+pack.lua
