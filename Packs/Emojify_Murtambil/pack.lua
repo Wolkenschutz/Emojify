@@ -14,6 +14,7 @@ pack:AddEmoji("murtamDerp", 64);
 pack:AddEmoji("murtamEvil", 64);
 pack:AddEmoji("murtamFine", 64);
 pack:AddEmoji("murtamHehe", 64);
+pack:AddEmoji("murtamHug", 64);
 pack:AddEmoji("murtamKiss", 64);
 pack:AddEmoji("murtamLOL", 64);
 pack:AddEmoji("murtamLove", 64);

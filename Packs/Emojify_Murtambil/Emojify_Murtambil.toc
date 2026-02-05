@@ -2,7 +2,7 @@
 
 ## Title: |cffc9c5c9Twitch @Murtambil|r
 ## Notes: Twitch Emotes of Murtambil
-## Version: 1.0
+## Version: 1.1
 ## IconTexture: Interface\AddOns\Emojify_Murtambil\icon
 
 ## Dependencies: Emojify
