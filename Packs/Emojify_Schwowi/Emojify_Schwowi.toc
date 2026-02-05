@@ -2,7 +2,7 @@
 
 ## Title: |cffffe9d6Twitch @Schwowi|r
 ## Notes: Twitch Emotes of Schwowi
-## Version: 1.1
+## Version: 1.2
 ## IconTexture: Interface\AddOns\Emojify_Schwowi\icon
 
 ## Dependencies: Emojify

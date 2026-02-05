@@ -7,7 +7,6 @@ pack:AddEmoji("schwowBuffed", 64);
 pack:AddEmoji("schwowBurn", 64);
 pack:AddEmoji("schwowCool", 64);
 pack:AddEmoji("schwowHeart", 64);
-pack:AddEmoji("schwowHello", 64);
 pack:AddEmoji("schwowHi", 64);
 pack:AddEmoji("schwowHype", 64);
 pack:AddEmoji("schwowLove", 64);
@@ -18,6 +17,7 @@ pack:AddEmoji("schwowRip", 64);
 pack:AddEmoji("schwowSleep", 64);
 pack:AddEmoji("schwowSorry", 64);
 pack:AddEmoji("schwowTimed", 64);
+pack:AddEmoji("schwowWait", 64);
 pack:AddEmoji("schwowWhat", 64);
 pack:AddEmoji("schwowWork", 64);
 pack:AddAnimatedEmoji("schwowAfk", 18, 64)
