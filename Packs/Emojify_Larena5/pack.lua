@@ -5,6 +5,7 @@ local pack = Emojify:RegisterPack(addonName);
 pack:AddEmoji("larena1Angy", 64);
 pack:AddEmoji("larena1Army", 64);
 pack:AddEmoji("larena1Backen", 64);
+pack:AddEmoji("larena1Cream", 64);
 pack:AddEmoji("larena1Cry", 64);
 pack:AddEmoji("larena1Family", 64);
 pack:AddEmoji("larena1Hammer", 64);
