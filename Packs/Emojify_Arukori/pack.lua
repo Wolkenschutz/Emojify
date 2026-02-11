@@ -334,6 +334,9 @@ pack:AddAnimatedEmoji("aruSwipe", 8, 64)
     :SetFrameDelay(2, 50)
     :SetFrameDelay(6, 50);
 
+-- CUSTOM
+pack:AddEmoji("aruPew", 64);
+
 pack:AddAnimatedEmoji("TwitchBurn", 59, 64)
     :SetDefaultDelay(40);
 
@@ -342,4 +345,3 @@ pack:AddAnimatedEmoji("WoWBurn", 59, 64)
 
 pack:AddAnimatedEmoji("aruFap", 2, 64)
     :SetDefaultDelay(100);
-
