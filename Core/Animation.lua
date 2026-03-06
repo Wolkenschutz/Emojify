@@ -106,32 +106,34 @@ function Animation.ProcessEmojiText(message)
 
         if (string.find(lowerMessage, lowerCode)) then
             local data = isAnimated and animatedEmojis[code] or emojis[code];
-            local frameWidth = data.width;
-            local frameHeight = data.height;
-            local displayHeight = DEFAULT_HEIGHT;
-            local displayWidth = math.floor(displayHeight * (frameWidth / frameHeight));
+            if (data) then
+                local frameWidth = data.width;
+                local frameHeight = data.height;
+                local displayHeight = DEFAULT_HEIGHT;
+                local displayWidth = math.floor(displayHeight * (frameWidth / frameHeight));
 
-            local left, right;
-            if (isAnimated) then
-                hasAnimated = true;
-                left = currentFrames[code] * frameWidth;
-                right = left + frameWidth;
-            else
-                left = 0;
-                right = frameWidth;
+                local left, right;
+                if (isAnimated) then
+                    hasAnimated = true;
+                    left = currentFrames[code] * frameWidth;
+                    right = left + frameWidth;
+                else
+                    left = 0;
+                    right = frameWidth;
+                end
+
+                local caseInsensitivePattern = ns.MakeCaseInsensitivePattern(lowerCode);
+                newMessage = string.gsub(
+                    newMessage,
+                    "%f[%w_]" .. caseInsensitivePattern .. "%f[^%w_]",
+                    string.format(
+                        "|Hemojify:%s|h|T%s:%d:%d:0:0:%d:%d:%d:%d:0:%d|t|h",
+                        code, data.texture, displayHeight, displayWidth,
+                        data.textureWidth, data.textureHeight,
+                        left, right, data.height
+                    )
+                );
             end
-
-            local caseInsensitivePattern = ns.MakeCaseInsensitivePattern(lowerCode);
-            newMessage = string.gsub(
-                newMessage,
-                "%f[%w_]" .. caseInsensitivePattern .. "%f[^%w_]",
-                string.format(
-                    "|Hemojify:%s|h|T%s:%d:%d:0:0:%d:%d:%d:%d:0:%d|t|h",
-                    code, data.texture, displayHeight, displayWidth,
-                    data.textureWidth, data.textureHeight,
-                    left, right, data.height
-                )
-            );
         end
     end
 
@@ -143,25 +145,27 @@ function Animation.UpdateAnimatedTextures(message)
 
     for code in string.gmatch(message, "Interface\\AddOns\\Emojify_[^\\]+\\animated_emojis\\([^:]+)") do
         local data = animatedEmojis[code];
-        local frameWidth = data.width;
-        local frameHeight = data.height;
-        local displayHeight = DEFAULT_HEIGHT;
-        local displayWidth = math.floor(displayHeight * (frameWidth / frameHeight));
-        local left = currentFrames[code] * frameWidth;
-        local right = left + frameWidth;
-        local texture = data.texture;
+        if (data) then
+            local frameWidth = data.width;
+            local frameHeight = data.height;
+            local displayHeight = DEFAULT_HEIGHT;
+            local displayWidth = math.floor(displayHeight * (frameWidth / frameHeight));
+            local left = currentFrames[code] * frameWidth;
+            local right = left + frameWidth;
+            local texture = data.texture;
 
-        local escapedTexture = string.gsub(texture, "([%(%)%.%%%+%-%*%?%[%]%^%$])", "%%%1");
-        newMessage = string.gsub(
-            newMessage,
-            "|T" .. escapedTexture .. ".-:.-:.-:.-:.-:.-:.-:.-:.-:.-:.-|t",
-            string.format(
-                "|T%s:%d:%d:0:0:%d:%d:%d:%d:0:%d|t",
-                texture, displayHeight, displayWidth,
-                data.textureWidth, data.textureHeight,
-                left, right, data.height
-            )
-        );
+            local escapedTexture = string.gsub(texture, "([%(%)%.%%%+%-%*%?%[%]%^%$])", "%%%1");
+            newMessage = string.gsub(
+                newMessage,
+                "|T" .. escapedTexture .. ".-:.-:.-:.-:.-:.-:.-:.-:.-:.-:.-|t",
+                string.format(
+                    "|T%s:%d:%d:0:0:%d:%d:%d:%d:0:%d|t",
+                    texture, displayHeight, displayWidth,
+                    data.textureWidth, data.textureHeight,
+                    left, right, data.height
+                )
+            );
+        end
     end
 
     return newMessage;
