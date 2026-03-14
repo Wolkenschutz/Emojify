@@ -231,6 +231,6 @@ pack:AddAnimatedEmoji("wink", 30, 64)
 
 ## License
 
-Copyright (c) 2025 Selina Ruesch. All rights reserved.
+Copyright (c) 2026 Selina Ruesch. All rights reserved.
 
 Custom emoji packs can be created using the public API without restrictions.
