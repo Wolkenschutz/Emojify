@@ -336,6 +336,8 @@ pack:AddAnimatedEmoji("aruSwipe", 8, 64)
 
 -- CUSTOM
 pack:AddEmoji("aruPew", 64);
+pack:AddEmoji("aruBrain", 64);
+pack:AddEmoji("aruRope", 64);
 
 pack:AddAnimatedEmoji("TwitchBurn", 59, 64)
     :SetDefaultDelay(40);
