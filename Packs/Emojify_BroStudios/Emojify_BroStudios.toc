@@ -2,8 +2,8 @@
 
 ## Title: |cff776c52Twitch @BroStudios_WoW|r
 ## Notes: Twitch Emotes of BroStudios_WoW
-## Version: 1.0
-## IconTexture: Interface\AddOns\Emojify_BroStudios_WoW\icon
+## Version: 1.1
+## IconTexture: Interface\AddOns\Emojify_BroStudios\icon
 
 ## Dependencies: Emojify
 ## Group: Emojify
