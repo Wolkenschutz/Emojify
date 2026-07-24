@@ -1,0 +1,11 @@
+## Interface: 120007, 11508
+
+## Title: |cff9729bbTwitch @Chromie|r
+## Notes: Twitch Emotes of Chromie
+## Version: 1.0
+## IconTexture: Interface\AddOns\Emojify_Chromie\icon
+
+## Dependencies: Emojify
+## Group: Emojify
+
+pack.lua
