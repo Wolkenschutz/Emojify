@@ -39,7 +39,7 @@ pack:AddEmoji("artemi345Venus", 64);
 pack:AddEmoji("artemi345Vibe", 64);
 pack:AddEmoji("artemi345Wide", 64);
 pack:AddAnimatedEmoji("artemi345Ban", 8, 64)
-    :SetDefaultDelay(0);
+    :SetDefaultDelay(100);
 
 pack:AddAnimatedEmoji("artemi345Bonkk", 40, 64)
     :SetDefaultDelay(50);
@@ -73,13 +73,13 @@ pack:AddAnimatedEmoji("artemi345Gag", 6, 64)
     :SetDefaultDelay(40);
 
 pack:AddAnimatedEmoji("artemi345Gopigirl", 16, 64)
-    :SetDefaultDelay(0);
+    :SetDefaultDelay(100);
 
 pack:AddAnimatedEmoji("artemi345Lurk", 29, 64)
     :SetDefaultDelay(170);
 
 pack:AddAnimatedEmoji("artemi345Luv", 14, 64)
-    :SetDefaultDelay(0);
+    :SetDefaultDelay(100);
 
 pack:AddAnimatedEmoji("artemi345Modlove", 50, 64)
     :SetDefaultDelay(40);
@@ -91,7 +91,7 @@ pack:AddAnimatedEmoji("artemi345No", 6, 64)
     :SetFrameDelay(5, 210);
 
 pack:AddAnimatedEmoji("artemi345PERIODT", 19, 64)
-    :SetDefaultDelay(0);
+    :SetDefaultDelay(100);
 
 pack:AddAnimatedEmoji("artemi345Rage", 50, 64)
     :SetDefaultDelay(100);
