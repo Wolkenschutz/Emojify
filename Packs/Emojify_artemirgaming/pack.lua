@@ -5,8 +5,11 @@ local pack = Emojify:RegisterPack(addonName);
 pack:AddEmoji("artemi345Ate", 64);
 pack:AddEmoji("artemi345BAG", 64);
 pack:AddEmoji("artemi345Boots", 64);
+pack:AddEmoji("artemi345Cardi", 64);
 pack:AddEmoji("artemi345Coffee", 64);
 pack:AddEmoji("artemi345Concept", 64);
+pack:AddEmoji("artemi345Crashout", 64);
+pack:AddEmoji("artemi345Disgust", 64);
 pack:AddEmoji("artemi345Divadown", 64);
 pack:AddEmoji("artemi345Energy", 64);
 pack:AddEmoji("artemi345EWW", 64);
@@ -22,18 +25,21 @@ pack:AddEmoji("artemi345Mercury", 64);
 pack:AddEmoji("artemi345Middlefingy", 64);
 pack:AddEmoji("artemi345Mothertoilet", 64);
 pack:AddEmoji("artemi345Mute", 64);
+pack:AddEmoji("artemi345Need", 64);
 pack:AddEmoji("artemi345Purr", 64);
 pack:AddEmoji("artemi345Puzz", 64);
 pack:AddEmoji("artemi345Redflag", 64);
 pack:AddEmoji("artemi345Righhht", 64);
 pack:AddEmoji("artemi345Righttt", 64);
 pack:AddEmoji("artemi345Rose", 64);
-pack:AddEmoji("artemi345Skinty", 64);
+pack:AddEmoji("artemi345Rot", 64);
 pack:AddEmoji("artemi345Slay", 64);
 pack:AddEmoji("artemi345Slayerina", 64);
 pack:AddEmoji("artemi345Venus", 64);
+pack:AddEmoji("artemi345Vibe", 64);
+pack:AddEmoji("artemi345Wide", 64);
 pack:AddAnimatedEmoji("artemi345Ban", 8, 64)
-    :SetDefaultDelay(120);
+    :SetDefaultDelay(0);
 
 pack:AddAnimatedEmoji("artemi345Bonkk", 40, 64)
     :SetDefaultDelay(50);
@@ -41,11 +47,18 @@ pack:AddAnimatedEmoji("artemi345Bonkk", 40, 64)
 pack:AddAnimatedEmoji("artemi345Bop", 39, 64)
     :SetDefaultDelay(40);
 
+pack:AddAnimatedEmoji("artemi345Brick", 25, 64)
+    :SetDefaultDelay(60);
+
 pack:AddAnimatedEmoji("artemi345Clap", 52, 64)
     :SetDefaultDelay(70);
 
 pack:AddAnimatedEmoji("artemi345Clockit", 4, 64)
     :SetDefaultDelay(40);
+
+pack:AddAnimatedEmoji("artemi345Cricket", 12, 64)
+    :SetDefaultDelay(80)
+    :SetFrameDelay(11, 800);
 
 pack:AddAnimatedEmoji("artemi345Cute", 2, 64)
     :SetDefaultDelay(140);
@@ -60,13 +73,25 @@ pack:AddAnimatedEmoji("artemi345Gag", 6, 64)
     :SetDefaultDelay(40);
 
 pack:AddAnimatedEmoji("artemi345Gopigirl", 16, 64)
-    :SetDefaultDelay(100);
+    :SetDefaultDelay(0);
+
+pack:AddAnimatedEmoji("artemi345Lurk", 29, 64)
+    :SetDefaultDelay(170);
 
 pack:AddAnimatedEmoji("artemi345Luv", 14, 64)
-    :SetDefaultDelay(100);
+    :SetDefaultDelay(0);
+
+pack:AddAnimatedEmoji("artemi345Modlove", 50, 64)
+    :SetDefaultDelay(40);
+
+pack:AddAnimatedEmoji("artemi345No", 6, 64)
+    :SetDefaultDelay(200)
+    :SetFrameDelay(0, 600)
+    :SetFrameDelay(4, 600)
+    :SetFrameDelay(5, 210);
 
 pack:AddAnimatedEmoji("artemi345PERIODT", 19, 64)
-    :SetDefaultDelay(100);
+    :SetDefaultDelay(0);
 
 pack:AddAnimatedEmoji("artemi345Rage", 50, 64)
     :SetDefaultDelay(100);
@@ -78,8 +103,14 @@ pack:AddAnimatedEmoji("artemi345Shook", 26, 64)
 pack:AddAnimatedEmoji("artemi345Sideeye", 40, 64)
     :SetDefaultDelay(50);
 
+pack:AddAnimatedEmoji("artemi345Slaaay", 20, 64)
+    :SetDefaultDelay(100);
+
 pack:AddAnimatedEmoji("artemi345Touchgrass", 60, 64)
     :SetDefaultDelay(20);
+
+pack:AddAnimatedEmoji("artemi345Xalafeet", 55, 64)
+    :SetDefaultDelay(50);
 
 pack:AddAnimatedEmoji("artemi34510outof10", 60, 64)
     :SetDefaultDelay(20);
