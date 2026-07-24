@@ -3,6 +3,7 @@ local addonName = ...;
 local pack = Emojify:RegisterPack(addonName);
 
 pack:AddEmoji("yusaki2Angry", 64);
+pack:AddEmoji("yusaki2Bonki", 64);
 pack:AddEmoji("yusaki2Brain", 64);
 pack:AddEmoji("yusaki2Burn", 64);
 pack:AddEmoji("yusaki2Cry", 64);
